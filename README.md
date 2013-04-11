@@ -11,6 +11,8 @@ An interactive mobile app interacting with the 2012-13 integrated learning theme
 
 Mission
 ----------
+The purpose of this project is for the BIT 271 class to create a mobile application that will deliver state specific content to the users. The final product will be a mobile application that will deliver basic content to users who scan the QE code. This project supports Cascadia Community College's commitment to <>?
+
 Objectives
 ----------
 Users Description
