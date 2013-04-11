@@ -5,6 +5,7 @@ An interactive mobile app interacting with the 2012-13 integrated learning theme
 * Write Mission
 * Write Objectives
 * Write Theme Description
+* Describe users
 
 # PROJECT SCOPE
 
@@ -12,6 +13,8 @@ Mission
 ----------
 Objectives
 ----------
+Users Description
+------
 
 Theme Description
 -----------------
