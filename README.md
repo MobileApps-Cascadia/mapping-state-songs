@@ -13,7 +13,8 @@ Mission
 ----------
 Objectives
 ----------
-Users Description
+Users Description:
+Grandparents, Parents, Faculty, Staff, UW/CCC students
 ------
 
 Theme Description
