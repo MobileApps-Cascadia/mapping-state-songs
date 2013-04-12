@@ -16,5 +16,5 @@ Objectives
 Users Description
 ------
 
-Theme Description
------------------
+# Theme Description (the personality and flavor of the app: color, feeling, interactivity)
+
