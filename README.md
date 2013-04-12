@@ -11,8 +11,8 @@ An interactive mobile app interacting with the 2012-13 integrated learning theme
 
 Mission
 ----------
-Objectives
-----------
+# Objectives (what we want the project to accomplish, not just the app functionality)
+
 Users Description
 ------
 
