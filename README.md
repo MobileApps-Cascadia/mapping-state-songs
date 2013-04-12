@@ -13,8 +13,14 @@ Mission
 ----------
 Objectives
 ----------
-Users Description: Grandparents, Parents, Faculty, Staff, UW/CCC students
+Users 
 ------
+**Description**: _Examples of some of the people who will use this app._
+* **Grandparents**
+* **Parents**
+* **Faculty**
+* **Staff**
+* **CCC/UW students**
 
 Theme Description
 -----------------
