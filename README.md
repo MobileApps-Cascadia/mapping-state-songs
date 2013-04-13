@@ -11,7 +11,7 @@ An interactive mobile app interacting with the 2012-13 integrated learning theme
 
 Mission
 ----------
-To create a mobile application that will deliver state specific content. specifically state songs in this phase to the users. The final product will be a mobile application that will deliver basic content to users who scan the QR code. This project supports Cascadia Community College's commitment to <>?
+To create an application that will deliver State specific content.  Specifically, in this phase, State songs that users will have the option to search, listen and download. The final product will be a mobile application that will deliver this basic content to users who scan the QR code. This project supports Cascadia Community College's commitment to <>?
 
 Objectives
 ----------
