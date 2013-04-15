@@ -15,7 +15,9 @@ Mission
 
 1. To build a platform that can represent the state songs project created by the integrated learning
    class and make it available to the users.
-
+   a.  Ability to read and utilize information from a QR code.
+   b.  Ability to play a song (state) obtained from QR code on a mobile device.
+   c.  Ability to display text information obtained from QR code on a mobile device.
 
 Users Description
 ------
