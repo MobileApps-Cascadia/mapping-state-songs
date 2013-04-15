@@ -23,6 +23,7 @@ _**Examples &amp; Descriptions** of some of the people who will use this app._
 * **_Staff_**
 * **_Grandparents_** 
 * **_Parents_**
+* **_K-12 Students_** - This project might present a learning opportunity for students in primary and secondary schools, where teachers may choose to take their students here on a field trip. For this audience, we may wish to design a learning pamphlet or acitivty pack to hand out to the students.
 
 Theme Description
 -----------------
