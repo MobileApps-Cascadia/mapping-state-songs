@@ -18,4 +18,5 @@ Users Description
 
 # Theme Description (the personality and flavor of the app: color, feeling, interactivity)
 so, /basically/ we need to make a theme!
+The app should integrate colors and images specific to the selected state. 
 
