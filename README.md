@@ -13,11 +13,11 @@ Mission
 ----------
 # Objectives (what we want the project to accomplish, not just the app functionality)
 
-1. Build a platform that can represent the state songs project created by the integrated learning
+1. To build a platform that can represent the state songs project created by the integrated learning
    class and make it available to the users.
-   a.  Read and utilize information from a QR code.
-   b.  Play a state song obtained from QR code.
-   c.  Display text information obtained from QR code.
+   a.  Ability to read and utilize information from a QR code.
+   b.  Ability to play a song (state) obtained from QR code on a mobile device.
+   c.  Ability to display text information obtained from QR code on a mobile device.
 
 Users Description
 ------
