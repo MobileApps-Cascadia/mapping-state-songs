@@ -5,16 +5,15 @@ mapping-state-songs
 
 Mission
 ----------
-To create an application that will deliver State specific content.  Specifically, in this phase, State songs that users will have the option to search, listen and download. The final product will be a mobile application that will deliver this basic content to users who scan the QR code. This project supports Cascadia Community College's commitment to <>?
-This project supports Cascadia Community College's commitment to the mission of integrated learning and sharing knowledge.
+This application will deliver State specific content interfacing with the 2012-13 integrated learning art installation at Cascadia Community College.  Specifically, the official songs and related content for each State will be available for users to search, listen, download, and interact with as they scan a QR code embedded in the installation. This project supports Cascadia Community College's commitment to the mission of integrated learning and sharing knowledge.
 
 Objectives
 -----
 1. To build a platform that can represent the state songs project created by the integrated learning
    class and make it available to the users.
-   a.  Ability to read and utilize information from a QR code.
-   b.  Ability to play a song (state) obtained from QR code on a mobile device.
-   c.  Ability to display text information obtained from QR code on a mobile device.
+2. Ability to read and utilize information from a QR code.
+3. Ability to play a song (state) obtained from QR code on a mobile device.
+4. Ability to display text information obtained from QR code on a mobile device.
 
 Users Description
 ------
@@ -30,5 +29,5 @@ _**Examples &amp; Descriptions** of some of the people who will use this app._
 
 Personality (the feeling of the app: color, images, interactivity)
 -------
-The app should integrate colors and images specific to the selected state. 
+The app should have a clean, streamlined feel and integrate colors and images specific to the selected state as appropriate. 
 
