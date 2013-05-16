@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.test.qr"
+        id        = "com.statesongs.ccc"
         versionCode="1" 
         version   = "1.0.0">
 
@@ -15,11 +15,11 @@
     <name>QR Test</name>
 
     <description>
-        Simply testing the deployment of the QR scanner on the mobile device using Phonegap Build.
+        Mapping State Songs project.
     </description>
 
     <author href="https://tom.christilaw.com" email="tom@christilaw.com">
-        Tom Christilaw 
+        Tom Christilaw, Janet Rasque, Helen Tsang, Riki Scott
     </author>
 
 </widget>
