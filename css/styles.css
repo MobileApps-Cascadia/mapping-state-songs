@@ -29,7 +29,7 @@ div[data-role="page"] {
 	background-image:url(../images/background.jpg);
 	background-repeat:no-repeat;
 	background-size:cover;
-	background-position:bottom center;
+	background-position:center center;
 	background-attachment:fixed;
 	text-align:center;
 }
@@ -92,6 +92,7 @@ div[data-role="footer"]	{
 
 @media only screen and (orientation : landscape) {
 	div[data-role="page"] {
-	background-image:url(../images/background_ls.jpg);
+		background-image:url(../images/background_ls.jpg);
+
 	}
 }
