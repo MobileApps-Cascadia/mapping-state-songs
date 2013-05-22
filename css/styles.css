@@ -75,6 +75,14 @@ div[data-role="footer"]	{
 	height:25%;
 }
 
+#aboutPage .scanButton {width: 20%;}
+
+#aboutPage p {text-align:left;}
+
+#aboutPage ul {
+	list-style-type:square;
+	text-align:left;
+}
 
 .footerButton, .ui-footer > .ui-btn {
 	display:inline-block;
