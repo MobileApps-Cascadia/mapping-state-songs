@@ -3,7 +3,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.statesongs.ccc"
         versionCode="1" 
-        version   = "1.0.0">
+        version   = "1.0.0">    
 
     <gap:plugin name="BarcodeScanner" /> <!-- latest release -->
     <gap:plugin name="ChildBrowser" /> <!-- latest release -->
@@ -18,8 +18,10 @@
         Mapping State Songs project for Cascadia Community College.
     </description>
 
-    <author href="https://tom.christilaw.com" email="tom@christilaw.com">
-        Tom Christilaw, Janet Rasque, Helen Tsang, Riki Scott
+    <author href="http://cascadia.edu" email="brianb@cascadia.edu">
+        State Tuned Team
     </author>
+    
+    <preference name="phonegap-version" value="2.7.0" />
 
 </widget>
