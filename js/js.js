@@ -16,15 +16,11 @@ function scan() {
     window.plugins.barcodeScanner.scan(
         function(result) {
             // Stop the currently playing song if one is playing
-            stopAudio();
-            // retrieve the navigation destination from the string and store it in the "page" variable.
-            var page = result.text.split(' ')[0];
+            stopAudio();           
             // retrieve the song url from the string and store it in the "song" variable.
-            var song = result.text.split(' ')[1];   
+            var state = result.text;   
             // Navigate to the page specified by first part of string.         
-            $.mobile.changePage( page );
-            // Add the state name parsed from song url to page.
-            $('#second div[data-role="content"]>h1').html(song.substring(song.lastIndexOf("/") + 1, song.lastIndexOf(".")));
+            $.mobile.changePage( 'second' );            
             // Automatically start playback of the state song.
             playAudio( song );
     }, function(error) {
