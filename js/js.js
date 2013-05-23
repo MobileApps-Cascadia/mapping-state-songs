@@ -20,7 +20,7 @@ function scan() {
             // retrieve the song url from the string and store it in the "song" variable.
             var state = result.text;   
             // Navigate to the page specified by first part of string.         
-            $.mobile.changePage( 'second' );            
+            $.mobile.changePage( '#second' );            
             // Automatically start playback of the state song.
             playAudio( song );
     }, function(error) {
@@ -30,8 +30,6 @@ function scan() {
 
 // Audio player
 //
-var my_media = null;
-var mediaTimer = null;
 
 // Play audio
 //
