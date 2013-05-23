@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
       // Call the barcode scanner's scan() function when the scan button is clicked  
 	$(".scanButton").click(function() {
 		scan();
@@ -8,7 +8,7 @@ $(document).ready(function() {
         stopAudio();
     });
 });
-
+var state;
  /* The scan() function.  Currently the scan function is set up to parse a specifically formatted
     string returned from the QR code. The function assumes that the string contains the destination
     url first and then the song url separated by a space. */
@@ -18,7 +18,7 @@ function scan() {
             // Stop the currently playing song if one is playing
             stopAudio();           
             // retrieve the song url from the string and store it in the "song" variable.
-            var state = result.text;   
+            state = result.text;   
             // Navigate to the page specified by first part of string.         
             $.mobile.changePage( '#second' );            
             // Automatically start playback of the state song.
