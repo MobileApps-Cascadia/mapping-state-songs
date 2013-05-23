@@ -75,9 +75,11 @@ div[data-role="footer"]	{
 	height:25%;
 }
 
-#aboutPage .scanButton {width: 20%;}
+#aboutPage .scanButton {width: 25%;}
 
 #aboutPage p {text-align:left;}
+
+aboutPage .ui-content{padding: 5px;}
 
 #aboutPage ul {
 	list-style-type:square;
