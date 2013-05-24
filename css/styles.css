@@ -1,8 +1,10 @@
 body {
 	width:100%;
 	height:100%;
+	font-family:Arial, Helvetica, sans-serif;
 }
 a:link, a:visited, a:hover {
+	color:#fff;
 	text-decoration:none;
 }
 .ui-btn, .ui-btn-inner, .ui-btn-text, .ui-btn-up-a, .ui-shadow {
@@ -16,32 +18,50 @@ a:link, a:visited, a:hover {
 	border:none;
 	box-shadow: none;
 }
-.ui-bar-a .ui-shadow, .ui-bar-b .ui-shadow, .ui-bar-c .ui-shadow {
-	box-shadow: none;
-	border: none;
-}
-.ui-bar-a {
-	background:none;
-	border: none;
-}
 
 div[data-role="page"] {
-	background-image:url(../images/background.jpg);
+	background-image:url(../images/bg.jpg);
 	background-repeat:no-repeat;
 	background-size:cover;
-	background-position:center center;
+	background-position:center top;
 	background-attachment:fixed;
 	text-align:center;
+	width:100%;
+	height:100%;
 }
-div[data-role="header"] {
+#home .header {
 	background-image:url(../images/logo.png);
+	position:relative;
+	top:0;
 	background-repeat:no-repeat;
 	background-size:contain;
 	background-position:top center;
+	width:90%;
 	height: 25%;
+	z-index:2;
 }
 
-.scanButton {
+#home .map {
+	width:100%;
+	height:50%;
+	top:25%;
+}
+
+#home .map img {
+	width:90%;
+	margin-top:10%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#home .scanContainer{
+	position:absolute;
+	top:25%;
+	width:100%;
+	text-align:center;
+	z-index:20;
+}
+#home .scanButton {
 	background:#102c6e;
 	color:#fff;
 	font-weight:normal;
@@ -49,7 +69,7 @@ div[data-role="header"] {
 	width:50%;
 	line-height: 40px;
 	margin:0 auto;
-	padding: 20px 20px;
+	padding: 20px 10px;
 	text-align: center;
 	background-image:-webkit-gradient(linear,left top,left bottom,from( #fff ),to( #102c6e ));
 	background-image:-webkit-linear-gradient( #fff,#102c6e 60%, #102c6e );
@@ -60,33 +80,25 @@ div[data-role="header"] {
 	border-radius: 15px;
 }
 
-#home div[data-role="content"] {
-	background-image:url(../images/us-map.png);
-	background-position:bottom center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	height:50%;
-	top:25%;
-	margin:0 auto;
-}
-
-div[data-role="footer"]	{
+#home .navContainer {
+	position:absolute;
+	top:75%;
 	text-align:center;
-	height:25%;
+	width:100%;
+	z-index:10;
 }
 
 #aboutPage .scanButton {width: 25%;}
 
 #aboutPage p {text-align:left;}
 
-aboutPage .ui-content{padding: 5px;}
+#aboutPage .ui-content{padding: 5px;}
 
 #aboutPage ul {
 	list-style-type:square;
 	text-align:left;
 }
-
-.footerButton, .ui-footer > .ui-btn {
+a.navButton:link, a.navButton:visited, a.navButton:hover {
 	display:inline-block;
 	margin:0 20px;
 	padding: 10px 10px;
@@ -97,12 +109,84 @@ aboutPage .ui-content{padding: 5px;}
 	font-size:18px;
 	line-height: 20px;
 	text-align: center;
-	border-radius: 10px;
+	border-radius: 15px;
 }
 
-@media only screen and (orientation : landscape) {
-	div[data-role="page"] {
-		background-image:url(../images/background_ls.jpg);
+.footer{
+	position:relative;
+	bottom:0;
+	background-image:url(../images/footer-bg.png);
+	background-position:bottom left;
+	background-repeat: no-repeat;
+	text-align:center;
+	height:25%;
+}
 
-	}
+@media (orientation:landscape) {
+#home .header {
+	background-position:top left;
+	height: 40%;
+}
+
+#home .map {
+	position:absolute;
+	top:20%;
+	width:50%;
+	left:10%;
+}
+
+#home .map img {
+	width:90%;
+	margin-top:10%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.footer {
+	height:60%;
+}
+
+#home .scanContainer{
+	top:10%;
+	width:25%;
+	right:20px;
+	text-align:right;
+}
+#home .navContainer {
+	top:50%;
+	right:20px;
+	width:25%;
+	text-align:right;
+}
+a.navButton:link, a.navButton:visited, a.navButton:hover {
+	display:block;
+	margin:5px 0;
+	width:90%;
+	max-width: 200px;
+}
+
+#home .scanButton {
+	width:90%;
+	max-width: 200px;
+	margin: 0;
+}
+
+}
+
+/*iPads (landscape)*/
+@media (min-width : 768px) 
+and (orientation : landscape) {
+#home .map {
+	position:absolute;
+	top:20%;
+	width:50%;
+	left:20%;
+}
+
+#home .map img {
+	width:90%;
+	margin-top:10%;
+	margin-left:auto;
+	margin-right:auto;
+}	
 }
