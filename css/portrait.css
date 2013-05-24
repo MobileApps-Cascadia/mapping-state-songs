@@ -1,0 +1,111 @@
+body {
+	width:100%;
+	height:100%;
+	font-family:Arial, Helvetica, sans-serif;
+}
+a:link, a:visited, a:hover {
+	color:#fff;
+	text-decoration:none;
+}
+.ui-btn, .ui-btn-inner, .ui-btn-text, .ui-btn-up-a, .ui-shadow {
+	background:none;
+	color:#fff;
+	text-shadow:none;
+	font-weight:normal;
+	font-size:18px;
+	line-height: 20px;
+	box-shadow: none;
+	border:none;
+	box-shadow: none;
+}
+
+div[data-role="page"] {
+	background-image:url(../images/bg.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center top;
+	background-attachment:fixed;
+	text-align:center;
+	width:100%;
+	height:100%;
+}
+#home .header {
+	background-image:url(../images/logo.png);
+	position:relative;
+	top:0;
+	background-repeat:no-repeat;
+	background-size:contain;
+	background-position:top center;
+	width:90%;
+	height: 25%;
+	z-index:2;
+}
+
+#home .map {
+	width:100%;
+	height:50%;
+	top:25%;
+}
+
+#home .map img {
+	width:90%;
+	margin-top:10%;
+}
+
+#home .scanContainer{
+	position:absolute;
+	top:25%;
+	width:100%;
+	text-align:center;
+	z-index:20;
+}
+#home .scanButton {
+	background:#102c6e;
+	color:#fff;
+	font-weight:normal;
+	font-size:36px;
+	width:50%;
+	line-height: 40px;
+	margin:0 auto;
+	padding: 20px 10px;
+	text-align: center;
+	background-image:-webkit-gradient(linear,left top,left bottom,from( #fff ),to( #102c6e ));
+	background-image:-webkit-linear-gradient( #fff,#102c6e 60%, #102c6e );
+	background-image:-moz-linear-gradient( #fff,#102c6e 60%, #102c6e );
+	background-image:-ms-linear-gradient( #fff,#102c6e 60%, #102c6e );
+	background-image:-o-linear-gradient( #fff,#102c6e 60%, #102c6e );
+	background-image:linear-gradient( #fff,#102c6e 60%, #102c6e );
+	border-radius: 15px;
+}
+
+#home .navContainer {
+	position:absolute;
+	top:75%;
+	text-align:center;
+	width:100%;
+	z-index:10;
+}
+a.navButton:link, a.navButton:visited, a.navButton:hover {
+	display:inline-block;
+	margin:0 20px;
+	padding: 10px 10px;
+	background-color: #7597c7;
+	color:#fff !important;
+	text-shadow:none;
+	font-weight:normal;
+	font-size:18px;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 15px;
+}
+
+.footer{
+	position:relative;
+	bottom:0;
+	background-image:url(../images/footer-bg.png);
+	background-position:bottom left;
+	background-repeat: no-repeat;
+	text-align:center;
+	height:25%;
+}
+
