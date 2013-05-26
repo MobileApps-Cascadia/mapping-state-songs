@@ -59,7 +59,8 @@ div[data-role="page"] {
 	text-align:center;
 	z-index:20;
 }
-#home .scanButton {
+
+*.scanButton {
 	background:#102c6e;
 	color:#fff;
 	font-weight:normal;
@@ -85,6 +86,7 @@ div[data-role="page"] {
 	width:100%;
 	z-index:10;
 }
+
 a.navButton:link, a.navButton:visited, a.navButton:hover {
 	display:inline-block;
 	margin:0 20px;
@@ -97,6 +99,21 @@ a.navButton:link, a.navButton:visited, a.navButton:hover {
 	line-height: 20px;
 	text-align: center;
 	border-radius: 15px;
+}
+
+#aboutPage p {
+	text-align:left;
+}
+
+#aboutPage .blue  {
+	color:blue;
+}
+
+#aboutPage .scanContainer {
+	width: 35%;
+}
+#aboutPage .navContainer  {
+	width: 35%;
 }
 
 .footer{

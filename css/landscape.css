@@ -64,7 +64,8 @@ div[data-role="page"] {
 	right:20px;
 	text-align:right;
 }
-#home .scanButton {
+
+*.scanButton {
 	background:#102c6e;
 	color:#fff;
 	font-weight:normal;
@@ -106,6 +107,21 @@ a.navButton:link, a.navButton:visited, a.navButton:hover {
 	margin:5px 0;
 	width:90%;
 	max-width: 200px;
+}
+
+#aboutPage p {
+	text-align:left;
+}
+
+#aboutPage .blue  {
+	color:blue;
+}
+
+#aboutPage .scanContainer {
+	width: 35%;
+}
+#aboutPage .navContainer  {
+	width: 35%;
 }
 
 .footer{
