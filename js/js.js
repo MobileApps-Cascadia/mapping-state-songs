@@ -9,7 +9,7 @@ $(document).ready(function () {
     });
 });
 //global variables for media playback
-var state, my_media, mediaTimer;
+var state, my_media;
  /* The scan() function.  Currently the scan function is set up to parse a specifically formatted
     string returned from the QR code. The function assumes that the string contains the destination
     url first and then the song url separated by a space. */
@@ -23,7 +23,7 @@ function scan() {
             // Navigate to the page specified by first part of string.         
             $.mobile.changePage( '#second' );            
             // Automatically start playback of the state song (from local asset.)
-            playAudio( "assets/WashingtonMyHome.mp3" );
+            playAudio( "assets/Washington My Home.mp3" );
     }, function(error) {
         alert("Scan failed: " + error);
     });
@@ -33,39 +33,14 @@ function scan() {
 //
 
 // Play audio
-//
 function playAudio(src) {
     // Create Media object from src
-    my_media = new Media(src, onSuccess, onError);
-	console.log("src: " + src);
-	console.log("my_media: " + my_media);
-
+    my_media = new Media(src, onSuccess, onError, onStatusChange);
     // Play audio
     my_media.play();
-
-    // Update my_media position every second
-    if (mediaTimer == null) {
-        mediaTimer = setInterval(function() {
-            // get my_media position
-            my_media.getCurrentPosition(
-                // success callback
-                function(position) {
-                    if (position > -1) {
-                        setAudioPosition((position) + " sec");
-                    }
-                },
-                // error callback
-                function(e) {
-                    console.log("Error getting pos=" + e);
-                    setAudioPosition("Error: " + e);
-                }
-            );
-        }, 1000);
-    }
 }
 
 // Pause audio
-// 
 function pauseAudio() {
     if (my_media) {
         my_media.pause();
@@ -73,32 +48,25 @@ function pauseAudio() {
 }
 
 // Stop audio
-// 
 function stopAudio() {
     if (my_media) {
         my_media.stop();
-        // release the device resources upon stopping playback
-        my_media.release();
+        my_media.release(); // release the device resources
     }
-    clearInterval(mediaTimer);
-    mediaTimer = null;
 }
 
 // onSuccess Callback
-//
 function onSuccess() {
     console.log("playAudio():Audio Success");
 }
 
 // onError Callback 
-//
 function onError(error) {
     alert('code: '    + error.code    + '\n' + 
           'message: ' + error.message + '\n');
 }
 
-// Set audio position
-// 
-function setAudioPosition(position) {
-    document.getElementById('audio_position').innerHTML = position;
+// onStatus Callback
+function onStatusChange(status) {
+    console.log(status);
 }
