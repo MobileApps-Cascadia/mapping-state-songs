@@ -8,8 +8,8 @@ $(document).ready(function () {
         stopAudio();
     });
 });
-var state;
-var my_media;
+//global variables for media playback
+var state, my_media, mediaTimer;
  /* The scan() function.  Currently the scan function is set up to parse a specifically formatted
     string returned from the QR code. The function assumes that the string contains the destination
     url first and then the song url separated by a space. */
