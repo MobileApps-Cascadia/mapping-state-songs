@@ -22,7 +22,7 @@ function scan() {
             // Navigate to the page specified by first part of string.         
             $.mobile.changePage( '#second' );            
             // Automatically start playback of the state song (from local asset.)
-            playAudio( "assets/Washington My Home.mp3" );
+            playAudio( "assets/WashingtonMyHome.mp3" );
     }, function(error) {
         alert("Scan failed: " + error);
     });
