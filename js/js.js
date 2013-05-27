@@ -17,12 +17,12 @@ function scan() {
         function(result) {
             // Stop the currently playing song if one is playing
             stopAudio();           
-            // retrieve the song url from the string and store it in the "song" variable.
+            // retrieve the state url from the "song" string via AJAX call (TODO).
             state = result.text;   
             // Navigate to the page specified by first part of string.         
             $.mobile.changePage( '#second' );            
-            // Automatically start playback of the state song.
-            playAudio( song );
+            // Automatically start playback of the state song (from local asset.)
+            playAudio( "assets/Washington My Home.mp3" );
     }, function(error) {
         alert("Scan failed: " + error);
     });
