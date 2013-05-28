@@ -49,13 +49,6 @@
             db.transaction(queryDB, errorCB);
         }
 
-        function scanGrabSongs() {
-            $.get('http://216.186.69.45/state_tunes/' + state, function (data) {
-                songList = data; //LUCAS YOU CAN WORK WITH THIS VARIABLE FOR THE LIST OF SONGS
-                console.log(songList); // DELETE AFTER TESTING
-            });
-        }
-
         // Cordova is ready
         //
         function onDeviceReady() {
@@ -76,13 +69,11 @@
                 })
                 $(this).attr("src",'images/redHeart.png');
             });
-
-            scanGrabSongs();
         }
 
 
         //============================================================================================================
-function updateState(state)
+function updateState()
 	{
 	
 	$.ajax(
@@ -90,8 +81,7 @@ function updateState(state)
             type: 'GET',
             url: 'http://216.186.69.45/services/state_list/' + state,
 			dataType: 'json',
-			onSuccess: function(){$("#statename").html(state.name);
-	}
+			onSuccess: function(data){$("#statename").html(data.state.name);}
 	});
 
 		
@@ -107,12 +97,9 @@ function updateState(state)
 }
 
 
-		function replacepage()
-		{
-			//name			
-        $("#statename").html(state.name);
-
+function replacepage(tunes){
 		//creates list of songs with the likes
+		console.log(tunes);
         var theWholeThing;
         for (I = 0; I < tunes.length; I++)
         {
@@ -126,4 +113,4 @@ function updateState(state)
         var thepath = "images/" + state + "-small.png"
         $("#statepic").attr("src", thepath);
 		
-		}
+}

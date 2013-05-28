@@ -1,3 +1,6 @@
+//global variables for media playback
+var state, my_media;
+
 $(document).ready(function () {
       // Call the barcode scanner's scan() function when the scan button is clicked  
 	$(".scanButton").click(function() {
@@ -8,8 +11,6 @@ $(document).ready(function () {
         stopAudio();
     });
 });
-//global variables for media playback
-var state, my_media;
  /* The scan() function.  Currently the scan function is set up to parse a specifically formatted
     string returned from the QR code. The function assumes that the string contains the destination
     url first and then the song url separated by a space. */
@@ -23,7 +24,7 @@ function scan() {
             // Navigate to the page specified by first part of string.         
             $.mobile.changePage( '#second' );            
             // Automatically start playback of the state song (from local asset.)
-            playAudio( "http://216.186.69.45/assets/WashingtonMyHome.mp3" );
+            updateState();
     }, function(error) {
         alert("Scan failed: " + error);
     });

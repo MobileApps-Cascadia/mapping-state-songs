@@ -17,6 +17,7 @@
 	<script src="barcodescanner.js"></script>
 
 	<script src="js/js.js"></script>
+	<script src="js/database.js"></script>
 	
 	<link rel="stylesheet" href="css/portrait.css" media="(orientation: portrait)"/>
 	<link rel="stylesheet" href="css/landscape.css" media="(orientation: landscape)"/>
@@ -46,25 +47,29 @@
 		</div>
     </div>
 
-	<!-- Page: second screen -->
-
+	<!-- Page: second screen State Page -->
+    <!--============================================================-->
 	<div id="second"
 		data-role="page"
-		data-title="State Tuned: State Screen">
+		data-title="StateTuned: State Screen">
 		<div data-role="header"
-			data-position="fixed">
-			
+			data-position="fixed">	
 		</div>
 		<div data-role="content">
-			<h1></h1>
-				<a href="#home" data-role="button">Home</a>
-			<div id="stop">Stop</div>
-			<div data-role="content">
-				<a class="scanButton" data-role="button">Scan Again</a>
+			<h1 id="statename"></h1>	<!-- This is where the state name will go -->
+			<img id="statepic" src="images/wa.jpeg">	<!-- This is where the state artwork will go -->
+			<!-- List of songs -->
+            
+                <ul id="listOfSongs"></ul>
+
+			<div data-role="footer">
+				<a class="scanButton" data-role="button">Scan</a>
+				<a class="aboutButton" data-role="button">About</a>
+				<a class="FBButton" data-role="button">FB</a>
+
             </div>
 		</div>
 	</div>
-
 	<!-- Dialog Content -->
 	
 	<div data-role="page"
