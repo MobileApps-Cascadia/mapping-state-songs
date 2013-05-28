@@ -83,26 +83,29 @@
 function updateState()
 	{
 	
-	$.ajax(
-	{
+	$.ajax({
             type: 'GET',
             url: 'http://216.186.69.45/services/state_list/' + state,
 			dataType: 'json',
-			onSuccess: function(data){$("#statename").html(data.state.name);}
+			onSuccess: updateTitle
 	});
 
 		
 		
-		$.ajax({
-			type: 'GET',
-	url: 'http://216.186.69.45/services/state_tunes/' + state,
-	dataType: 'json',
-	onSuccess: replacepage
-        });
+	$.ajax({
+		type: 'GET',
+		url: 'http://216.186.69.45/services/state_tunes/' + state,
+		dataType: 'json',
+		onSuccess: replacepage
+     });
 
 
 }
 
+function updateTitle(state){
+	console.log(state);
+	$("#statename").html(state.name);
+}
 
 function replacepage(tunes){
 		//creates list of songs with the likes
