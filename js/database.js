@@ -111,7 +111,7 @@ function replacepage(tunes){
             theWholeThing += "<li id=\"song\" data-song=\"5\"><a href=\"#\" class=\"btn large\" onclick=\"playAudio('http://216.186.69.45/assets/" + tunes[I].content + "');\"><img src=\"images/play.png\"></a><a href=\"#\" class=\"btn large\" onclick=\"pauseAudio();\"><img src=\"images/pause.png\"></a>" + tunes[I].content + " likes = " + tunes[I].likes + "</li>";
 				            //"<li id=\"song\" data-song=\"5\"><a href=\"#\" class=\"btn large\" onclick=\"playAudio('" + songurl + "');\"><img src=\"images/play.png\"></a><a href=\"#\" class=\"btn large\" onclick=\"pauseAudio();\"><img src=\"images/pause.png\"></a>" + song.name + "</li>"
         }
-       $('#listOfSongs').html(theWholeThing);
+       $('#statesongs').html(theWholeThing);
 
 
         //picture
