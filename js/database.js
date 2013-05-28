@@ -2,6 +2,8 @@
             state,
             songList; 
 
+        var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
+
         // wait until the device is ready
         document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -67,7 +69,13 @@
                         console.log('PUT Completed');
                     }
                 })
-                $(this).attr("src",'images/redHeart.png');
+                 if (deviceType == 'Android') {
+                     $(this).attr("src",'/android_asset/www/images/redHeart.png');
+                }
+                else {
+                    $(this).attr("src",'images/redHeart.png');
+                }
+                
             });
         }
 
@@ -110,7 +118,12 @@ function replacepage(tunes){
 
 
         //picture
-        var thepath = "images/" + state + "-small.png"
+        if (deviceType == 'Android') {
+             var thepath = "/android_asset/www/images/" + state + "-small.png";
+        }
+        else {
+            var thepath = "images/" + state + "-small.png";
+        }
         $("#statepic").attr("src", thepath);
 		
 }
