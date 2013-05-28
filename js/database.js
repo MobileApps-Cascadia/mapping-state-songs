@@ -82,7 +82,7 @@ function updateState()
             type: 'GET',
             url: 'http://216.186.69.45/services/state_list/' + state,
 			dataType: 'json',
-			onSuccess: updateTitle
+			success: updateTitle
 	});
 
 		
@@ -91,7 +91,7 @@ function updateState()
 		type: 'GET',
 		url: 'http://216.186.69.45/services/state_tunes/' + state,
 		dataType: 'json',
-		onSuccess: replacepage
+		success: replacepage
      });
 
 
