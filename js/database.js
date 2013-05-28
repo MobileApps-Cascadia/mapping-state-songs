@@ -104,7 +104,7 @@ function updateState()
 
 function updateTitle(state){
 	console.log(state);
-	$("#statename").html(state.name);
+	$("#statename").append(state.name);
 }
 
 function replacepage(tunes){
@@ -116,7 +116,7 @@ function replacepage(tunes){
             theWholeThing += "<li id=\"song\" data-song=\"5\"><a href=\"#\" class=\"btn large\" onclick=\"playAudio('" + tunes[I].content + "');\"><img src=\"images/play.png\"></a><a href=\"#\" class=\"btn large\" onclick=\"pauseAudio();\"><img src=\"images/pause.png\"></a>" + tunes[I].content + " likes = " + tunes.likes + "</li>";
 				            //"<li id=\"song\" data-song=\"5\"><a href=\"#\" class=\"btn large\" onclick=\"playAudio('" + songurl + "');\"><img src=\"images/play.png\"></a><a href=\"#\" class=\"btn large\" onclick=\"pauseAudio();\"><img src=\"images/pause.png\"></a>" + song.name + "</li>"
         }
-        document.getElementById('listOfSongs').innerHTML = theWholeThing;
+        $('#listOfSongs').append(theWholeThing);
 
 
         //picture
