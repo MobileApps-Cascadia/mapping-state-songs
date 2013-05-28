@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.statesongs.ccc"
+        versionCode="1" 
+        version   = "1.0.0">
+
+    <gap:plugin name="BarcodeScanner" /> <!-- latest release -->
+    <gap:plugin name="ChildBrowser" /> <!-- latest release -->
+
+    <!-- versionCode is optional and Android only -->
+
+    <!-- <icon src="images/logo.png" /> -->
+    
+    <name>State Tuned</name>
+
+    <description>
+        Mapping State Songs project for Cascadia Community College.
+    </description>
+
+    <author href="https://tom.christilaw.com" email="tom@christilaw.com">
+        Tom Christilaw, Janet Rasque, Helen Tsang, Riki Scott
+    </author>
+
+</widget>
