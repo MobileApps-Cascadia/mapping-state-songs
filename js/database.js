@@ -68,7 +68,7 @@
 
                 db.transaction(likeSongDB, errorCB, successCB);
                 $.ajax({
-                    url: "http://216.186.69.45/like_tune/" + song,
+                    url: "http://216.186.69.45/services/like_tune/" + song,
                     type: 'PUT',
                     success: function (response) {
                         console.log('PUT Completed');
@@ -100,14 +100,14 @@ function updateState(state)
 			type: 'GET',
 	url: 'http://216.186.69.45/services/state_tunes/' + state,
 	dataType: 'json',
-				onSuccess; doit
+	onSuccess: replacepage
         });
 
 
 }
 
 
-		function doit()
+		function replacepage()
 		{
 			//name			
         $("#statename").html(state.name);
