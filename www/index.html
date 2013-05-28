@@ -104,34 +104,23 @@
         }
 
 
-        //==============================================================================
-        //ALL OF THIS SHOULD PROBABLY GO IN THE ONLOAD SECTIOn
-
+        //============================================================================================================
         $.ajax({
             type: 'GET',
-            url: 'http://216.186.69.45/state_list/',
-            dataType: 'json', // data type of response
-            success: createStateList
+            url: 'http://216.186.69.45/state_list/' + state,
+            dataType: 'json',
         });
 
         $.ajax({
             type: 'GET',
-            url: 'http://archduke.wow64.net/state.html?state=' + state,
-            dataType: 'json', // data type of response
-            success: createStateList
+            url: 'http://216.186.69.45/state_tunes/' + state,
+            dataType: 'json',
         });
-        //THE ACTUAL CODE
-        //=================================================================================
-        for (i = 0; i < 51; i++) {
-            if (states[I].abv = state) {
-                var arraynum = I;
-            }
-        }
-        //name
-        $("#statename").html(states[arraynum].name);
 
 
-        //list of songs
+        $("#statename").html(state.name);
+
+
         var theWholeThing;
         for (I = 0; I < tunes.length; I++)
         {
