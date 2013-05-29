@@ -121,7 +121,7 @@ function replacepage(data){
 
         //picture
         if (deviceType == 'Android') {
-             var thepath = "/android_asset/www/images/" + state + "-small.png";
+             var thepath = $.get('images/' + state + '-small.png');
         }
         else {
             var thepath = "images/" + state + "-small.png";
