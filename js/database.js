@@ -93,21 +93,20 @@ function updateState()
 		dataType: 'json',
 		success: replacepage
      });
-
-
 }
 
 function updateTitle(data){
 	console.log(state);
-	$("#statename").html(data.state[0].name);
+    fullStateName = data.state[0].name;
+	$("#statename").html(fullStateName);
 }
 
 function replacepage(data){
 		//creates list of songs with the likes
 		
-        var theWholeThing;
+        $('#statesongs').html();
         $.each(data.tunes, function(index, tune) {
-            theWholeThing += '<li id="song"><a href="#" class="btn large" onclick="playAudio("http://216.186.69.45/assets/' + tune.content + '")><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + tune.content + ' likes = ' + tune.likes + '</li>';
+            $('#statesongs').append('<li id="song"><a href="#" class="btn large" onclick="playAudio("http://216.186.69.45/assets/' + tune.content + '")><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' State Song - likes = ' + tune.likes + '</li>');
         });
         // for (i = 0; i < tunes.length; i++)
         // {
@@ -116,7 +115,6 @@ function replacepage(data){
         // }
         var string = JSON.stringify(data);
         console.log(string);
-       $('#statesongs').html(theWholeThing);
 
 
         //picture

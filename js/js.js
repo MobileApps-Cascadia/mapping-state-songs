@@ -1,5 +1,5 @@
 //global variables for media playback
-var state, my_media;
+var state, my_media, fullStateName;
 
 $(document).ready(function () {
       // Call the barcode scanner's scan() function when the scan button is clicked  
