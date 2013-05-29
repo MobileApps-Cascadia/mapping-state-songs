@@ -9,16 +9,16 @@
 
 // Run this code on show of the #map page
 $(document).delegate("#map", "pageshow", function() {
-	alert("pageshow for map page worked");
 	var map, // The Google Map
 	zoomLevel, // The zoom level (larger sreens should be zoomed in more)
 	screenWidth, // The width of the screen
 	screenHeight, // The height of the map
 	centerOfUSA = new google.maps.LatLng(35, -96), // The center Lat/Lon of the USA
-	stateName = $('#statename').text(); // The current state's name
+	stateName = $('#statename'); // The current state's name
+	console.log("stateName text = " + stateName.text());
 	
 	// Add the stateName inside the <h3></h3> tag on the #map page
-	$('#map > div[data-role="content"] > h3').html(stateName);
+	$('#map > div[data-role="content"] > h3').text(stateName.text());
 	
 	// Get the latitude and longitude of the state we want to point out
 	console.log(state.latitude);
