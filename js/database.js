@@ -97,9 +97,9 @@ function updateState()
 
 }
 
-function updateTitle(state){
+function updateTitle(data){
 	console.log(state);
-	$("#statename").append(state[0].name);
+	$("#statename").append(data.state[0].name);
 }
 
 function replacepage(tunes){
