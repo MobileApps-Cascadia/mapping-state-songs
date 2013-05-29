@@ -111,6 +111,7 @@ function replacepage(data){
         //     theWholeThing += '<li id="song" data-song="5"><a href="#" class="btn large" onclick="playAudio("http://216.186.69.45/assets/' + data.tunes[i].content + '")><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + data.tunes[i].content + ' likes = ' + data.tunes[i].likes + '</li>';
 				    //         //"<li id=\"song\" data-song=\"5\"><a href=\"#\" class=\"btn large\" onclick=\"playAudio('" + songurl + "');\"><img src=\"images/play.png\"></a><a href=\"#\" class=\"btn large\" onclick=\"pauseAudio();\"><img src=\"images/pause.png\"></a>" + song.name + "</li>"
         // }
+        var string = JSON.stringify(data);
         console.log(data);
        // $('#statesongs').html(theWholeThing);
 
