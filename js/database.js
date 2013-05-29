@@ -116,7 +116,7 @@ function replacepage(data){
         // }
         var string = JSON.stringify(data);
         console.log(string);
-       // $('#statesongs').html(theWholeThing);
+       $('#statesongs').html(theWholeThing);
 
 
         //picture
