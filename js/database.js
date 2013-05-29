@@ -80,7 +80,7 @@ function updateState()
 	console.log("starting Update State");
 	$.ajax({
             type: 'GET',
-            url: 'http://216.186.69.45/services/state_list/' + state,
+            url: 'http://statetuned.cascadia.edu/services/state_list/' + state,
 			dataType: 'json',
 			success: updateTitle
 	});
@@ -89,7 +89,7 @@ function updateState()
 		
 	$.ajax({
 		type: 'GET',
-		url: 'http://216.186.69.45/services/state_tunes/' + state,
+		url: 'http://statetuned.cascadia.edu/services/state_tunes/' + state,
 		dataType: 'json',
 		success: replacepage
      });
@@ -105,7 +105,7 @@ function replacepage(data){
 		//creates list of songs with the likes
 		
         $('#statesongs').html('<li id="song"><a href="#" class="btn large" onclick="playAudio(' + data.tunes[0].content + ')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' State Song - likes = ' + data.tunes[0].likes + '</li>');
-        playAudio(data.tunes[0].content);       
+        playAudio("http://statetuned.cascadia.edu/assets/"+data.tunes[0].content);       
         
         var string = JSON.stringify(data);
         console.log(string);
