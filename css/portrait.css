@@ -129,3 +129,18 @@ a.navButton:link, a.navButton:visited, a.navButton:hover {
 	height:25%;
 }
 
+/* Main app footer - Temp styles for readability */
+div[data-role="footer"] {
+	background-color: blue;
+}
+
+/* Scan button was way too huge in app footer */
+div[data-role="footer"] .scanButton {
+	width: auto;
+	padding: 10px;
+}
+
+/* Map button - temp styling */
+#second a[href="#map"] {
+	background-color: #7597c7;
+}
