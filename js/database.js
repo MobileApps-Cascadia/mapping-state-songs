@@ -106,7 +106,7 @@ function replacepage(data){
 		//creates list of songs with the likes
 		
         var theWholeThing;
-        foreach(var tune in data.tunes) {
+        $.each(data,function(index, tune) {
             theWholeThing += '<li id="song"><a href="#" class="btn large" onclick="playAudio("http://216.186.69.45/assets/' + tune.content + '")><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + tune.content + ' likes = ' + tune.likes + '</li>';
         }
         // for (i = 0; i < tunes.length; i++)
