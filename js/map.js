@@ -20,15 +20,18 @@ $(document).delegate("#map", "pageshow", function() {
 	$('#map > div[data-role="content"] > h3').text(stateName.text());
 	
 	// Get the latitude and longitude of the state we want to point out
-	console.log(state);
-	// var lat = ,
-		// lon = ;
-	//addMap(lat, lon);
+	$.ajax({
+        type: 'GET',
+        url: 'http://statetuned.cascadia.edu/services/state_list/' + state,
+		dataType: 'json',
+		success: addMap
+	});
 	
 	// Add the google map inside the #map-canvas div
-	function addMap(lat, lon) {
-		
-		//var stateLatLon = new google.maps.LatLng(lat, lon);
+	function addMap(data) {
+		var lat = data.state[0].latitude, // Current state's latitude
+			lon = data.state[0].longitude, // Current state's longitude
+			stateLatLon = new google.maps.LatLng(lat, lon); // create new LatLng object with the state's lat/lon
 		
 		// Determine the window size to set zoom
 		screenWidth = screen.width;
