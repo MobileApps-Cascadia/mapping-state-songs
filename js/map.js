@@ -23,12 +23,12 @@ $(document).delegate("#map", "pageshow", function() {
 	alert(state[0].latitude);
 	// var lat = ,
 		// lon = ;
-	addMap(lat, lon);
+	//addMap(lat, lon);
 	
 	// Add the google map inside the #map-canvas div
 	function addMap(lat, lon) {
 		
-		var stateLatLon = new google.maps.LatLng(lat, lon);
+		//var stateLatLon = new google.maps.LatLng(lat, lon);
 		
 		// Determine the window size to set zoom
 		screenWidth = screen.width;
