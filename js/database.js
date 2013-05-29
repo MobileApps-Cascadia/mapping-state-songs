@@ -104,23 +104,16 @@ function updateTitle(data){
 function replacepage(data){
 		//creates list of songs with the likes
 		
-        $('#statesongs').html('<li id="song"><a href="#" class="btn large" onclick="playAudio("http://216.186.69.45/assets/' + data.tunes[0].content + '")><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' State Song - likes = ' + data.tunes[0].likes + '</li>');
-        playAudio(data.tunes[0].content);
+        $('#statesongs').html('<li id="song"><a href="#" class="btn large" onclick="playAudio("http://216.186.69.45/assets/' + data.tunes[0].id + '")><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' State Song - likes = ' + data.tunes[0].likes + '</li>');
+        playAudio(data.tunes[0].content);       
         
-        
-        
-        // for (i = 0; i < tunes.length; i++)
-        // {
-        //     theWholeThing += '<li id="song" data-song="5"><a href="#" class="btn large" onclick="playAudio("http://216.186.69.45/assets/' + data.tunes[i].content + '")><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + data.tunes[i].content + ' likes = ' + data.tunes[i].likes + '</li>';
-				    //         //"<li id=\"song\" data-song=\"5\"><a href=\"#\" class=\"btn large\" onclick=\"playAudio('" + songurl + "');\"><img src=\"images/play.png\"></a><a href=\"#\" class=\"btn large\" onclick=\"pauseAudio();\"><img src=\"images/pause.png\"></a>" + song.name + "</li>"
-        // }
         var string = JSON.stringify(data);
         console.log(string);
 
 
         //picture
         if (deviceType == 'Android') {
-             var thepath = $.get('images/' + state + '-small.png');
+             var thepath = 'images/' + state + '-small.png';
         }
         else {
             var thepath = "images/" + state + "-small.png";
