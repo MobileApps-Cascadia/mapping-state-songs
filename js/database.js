@@ -99,7 +99,7 @@ function updateState()
 
 function updateTitle(state){
 	console.log(state);
-	$("#statename").append(state.name);
+	$("#statename").append(state[0].name);
 }
 
 function replacepage(tunes){
