@@ -15,13 +15,12 @@ $(document).delegate("#map", "pageshow", function() {
 	screenHeight, // The height of the map
 	centerOfUSA = new google.maps.LatLng(35, -96), // The center Lat/Lon of the USA
 	stateName = $('#statename'); // The current state's name
-	console.log("stateName text = " + stateName.text());
 	
 	// Add the stateName inside the <h3></h3> tag on the #map page
 	$('#map > div[data-role="content"] > h3').text(stateName.text());
 	
 	// Get the latitude and longitude of the state we want to point out
-	console.log(state.latitude);
+	console.log(state);
 	// var lat = ,
 		// lon = ;
 	//addMap(lat, lon);
