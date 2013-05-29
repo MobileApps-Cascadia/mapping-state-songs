@@ -18,6 +18,7 @@
 
 	<script src="js/js.js"></script>
 	<script src="js/database.js"></script>
+	<script src="js/map.js"></script>
 	
 	<link rel="stylesheet" href="css/portrait.css" media="(orientation: portrait)"/>
 	<link rel="stylesheet" href="css/landscape.css" media="(orientation: landscape)"/>
@@ -58,17 +59,38 @@
 			<h1 id="statename"></h1>	
 			<img id="statepic" alt="State Artwork">
             <ul id="statesongs"></ul>
+            <a href="#map" data-role="button" data-icon="arrow-r" data-iconpos="right">Map</a>
 
-			<div data-role="footer">
+			<div data-role="footer" data-position="fixed">
 				<a class="scanButton" data-role="button">Scan</a>
-				<a class="aboutButton" data-role="button">About</a>
-				<a class="FBButton" data-role="button">FB</a>
-
+				<a class="aboutButton" data-role="button" href="#aboutPage">About</a>
+				<a class="FBButton" data-role="button" href="#facebook">FB</a>
             </div>
 		</div>
 	</div>
-	<!-- Dialog Content -->
 	
+	<!-- Page: Map Page -->
+	<div id="map" data-role="page" data-title="StateTuned: Map Screen">
+		<div data-role="header" data-position="fixed">
+			<!-- nothing in header yet -->
+		</div>
+		<div data-role="content">
+			<h3>
+				<!-- State name injected here by map.js -->
+			</h3>
+        	<div id="map-canvas">
+        		<!-- Google Map injected here by map.js -->
+        	</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<a href="#second" data-rel="back" data-icon="back">Back</a>
+			<a class="scanButton" data-role="button">Scan</a>
+			<a class="aboutButton" data-role="button" href="#aboutPage">About</a>
+			<a class="FBButton" data-role="button" href="#facebook">FB</a>
+		</div>
+	</div>
+	
+	<!-- Dialog Content -->
 	<div data-role="page"
 		id="aboutPage"
 		data-title="StateTuned: About">
