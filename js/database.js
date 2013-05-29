@@ -102,13 +102,13 @@ function updateTitle(data){
 	$("#statename").append(data.state[0].name);
 }
 
-function replacepage(tunes){
+function replacepage(data){
 		//creates list of songs with the likes
 		console.log(tunes);
         var theWholeThing;
         for (I = 0; I < tunes.length; I++)
         {
-            theWholeThing += "<li id=\"song\" data-song=\"5\"><a href=\"#\" class=\"btn large\" onclick=\"playAudio('http://216.186.69.45/assets/" + tunes[I].content + "');\"><img src=\"images/play.png\"></a><a href=\"#\" class=\"btn large\" onclick=\"pauseAudio();\"><img src=\"images/pause.png\"></a>" + tunes[I].content + " likes = " + tunes[I].likes + "</li>";
+            theWholeThing += "<li id=\"song\" data-song=\"5\"><a href=\"#\" class=\"btn large\" onclick=\"playAudio('http://216.186.69.45/assets/" + data.tunes[I].content + "');\"><img src=\"images/play.png\"></a><a href=\"#\" class=\"btn large\" onclick=\"pauseAudio();\"><img src=\"images/pause.png\"></a>" + data.tunes[I].content + " likes = " + data.tunes[I].likes + "</li>";
 				            //"<li id=\"song\" data-song=\"5\"><a href=\"#\" class=\"btn large\" onclick=\"playAudio('" + songurl + "');\"><img src=\"images/play.png\"></a><a href=\"#\" class=\"btn large\" onclick=\"pauseAudio();\"><img src=\"images/pause.png\"></a>" + song.name + "</li>"
         }
        $('#statesongs').html(theWholeThing);
