@@ -112,7 +112,7 @@ function replacepage(data){
 
 
         //picture
-        
-        $("#statepic").attr("src", 'images/' + state + '-small.png');
+        var sizeSuffix = deviceType=="iPad"?"-med.png": "-small.png";
+        $("#statepic").attr("src", 'images/' + state + sizeSuffix);
 		
 }
