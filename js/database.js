@@ -103,7 +103,7 @@ function replacepage(data) {
 
     //creates list of songs with the likes
     $.each(data.tunes, function (key, item) {
-        $('#statesongs').append('<li id="song"><img class="mediaButton" src="images/play.png">' + item.content + '<img class="likeButton" src="' + blankHeart + '"></li>');;
+        $('#statesongs').append('<li id="song" data-song=' + item.content + '><img class="mediaButton" src="images/play.png">' + item.content + '<img class="likeButton" src="' + blankHeart + '"></li>');;
         $('#Statesongs li:last .mediaButton').click(playAudio(item.content));
     });
 
