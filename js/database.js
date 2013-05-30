@@ -1,4 +1,13 @@
-var song,songList; 
+var url = "http://statetuned.cascadia.edu/",
+	servicesURL = url+"services/",
+	assetsURL = url+"assets/",
+	song,
+    songList,
+    redHeart,
+    blankHeart,
+    playButton,
+    pauseButton,
+    db;
 var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
 // wait until the device is ready
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -6,28 +15,26 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //
 function onDeviceReady() {
 	console.log("device ready");
-	var db = window.openDatabase("StateTuning", "1.0", "StateTuning", 200000);
+	db = window.openDatabase("StateTuning", "1.0", "StateTuning", 200000);
 	db.transaction(setUpDB, errorCB, successCB);
 
-	$('.likeButton').click(function () {
-		song = $(this).parent().data('song');
-		//state = $('#state').data('state');
-
-		db.transaction(likeSongDB, errorCB, successCB);
-		$.ajax({
-			url: "http://216.186.69.45/services/like_tune/" + song,
-			type: 'PUT',
-			success: function (response) {
-				console.log('PUT Completed');
-			}
-		});
-		 $(this).attr("src",'images/redHeart.png');		
-	});
+    //Set the path for the hearts one time in a variable since they will be altered in several spots
+	if (deviceType == 'Android') {
+	    redHeart = '/android_asset/www/images/redHeart.png';
+	    blankHeart = '/android_asset/www/images/blankHeart.png';
+	    playButton = '/android_asset/www/images/play.png';
+	    pauseButton = '/android_asset/www/images/pause.png';
+	}
+	else {
+	    redHeart = 'images/redHeart.png';
+	    blankHeart = 'images/blankHeart.png';
+	    playButton = 'images/play.png';
+	    pauseButton = 'images/pause.png';
+	}
 }
 
 
         function setUpDB(tx) {
-            tx.executeSql('DROP TABLE IF EXISTS StateTuning'); // for testing purposes. remove from final product!
             tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning (id INTEGER primary key, state, song)'); //Creating the table of it doesn't exist
         }
 
@@ -90,23 +97,41 @@ function updateState()
 }
 
 function updateTitle(data){
-	console.log(state);
-    fullStateName = data.state[0].name;
-	$("#statename").html(fullStateName);
+ 	fullStateName = data.state[0].name;
+ 	$("#statename").html(fullStateName);
 }
 
-function replacepage(data){
-		//creates list of songs with the likes
-		
-        $('#statesongs').html('<li id="song"><a href="#" class="btn large" onclick="playAudio(' + data.tunes[0].content + ')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' State Song - likes = ' + data.tunes[0].likes + '</li>');
-        playAudio("http://statetuned.cascadia.edu/assets/"+data.tunes[0].content);       
-        
-        var string = JSON.stringify(data);
-        console.log(string);
-
-
-        //picture
+function replacepage(data) {
+		/* Create a single song listing with the like heart as grey */
+        $('#statesongs').html('<li id="song" data-song=' + data.tunes[0].assetid + '><a href="#" class="btn large" onclick="playAudio(' + assetsURL+data.tunes[0].content + ')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + '<img class="likeButton" src="' + blankHeart + '"></li>');
+        playAudio(assetsURL+data.tunes[0].content);       
+       
+/* TODO: when we have more than one song this will create a list of songs with the likes
+    $.each(data.tunes, function (key, item) {
+        $('#statesongs').append('<li id="song" data-song=' + item.content + '><img class="mediaButton" src="images/play.png">' + item.content + '<img class="likeButton" src="' + blankHeart + '"></li>');;
+        $('#Statesongs li:last .mediaButton').click(playAudio(item.content));
+    });
+*/
+        //Update the state picture
         var sizeSuffix = deviceType=="iPad"?"-med.png": "-small.png";
         $("#statepic").attr("src", 'images/' + state + sizeSuffix);
+
+
+        $('.likeButton').click(function () {
+            var songID = $(this).parent().data('songID');
+            //Update the DB with a song LIKE
+            db.transaction(likeSongDB, errorCB, successCB);
+            $.ajax({
+                url: "http://216.186.69.45/services/like_tune/" + songID,
+                type: 'PUT',
+                success: function (response) {
+                    console.log('PUT Completed');
+                }
+            });
+            //Change the heart image and remove the click functionality
+            $(this).attr("src", redHeart);
+            $(this).unbind("click");
+
+        });
 		
 }
