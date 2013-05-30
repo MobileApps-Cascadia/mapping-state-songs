@@ -5,6 +5,9 @@
  * to the #map page. Upon clicking that, the #map page populates an <h3> with the current state's name
  * in it, and populates a div with id #map-canvas with a Google Map. The Google Map pops up an InfoWindow
  * containing the current state's artwork, and points at that state's latitude/longitude.
+ * 
+ * Upon leaving the #map page, the state name text should be removed from the h3, and the google map
+ * stuff should be removed from the #map-canvas div. Using JQuery empty() method to do that.
  */
 
 // Run this code on show of the #map page
@@ -173,6 +176,15 @@ $(document).delegate("#map", "pageshow", function() {
 	} // end addMap()
 	
 }); // end #map pageshow function
+
+
+// This code runs upon leaving the #map page
+$(document).delegate("#map", "pagehide", function() {
+	// Empty the state name text inside the <h3></h3> on the #map page
+	$('#map > div[data-role="content"] > h3').empty();
+	// Empty the contents of the #map-canvas div
+	$('#map #map-canvas').empty();
+});
 
 
 
