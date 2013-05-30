@@ -19,7 +19,7 @@ function onDeviceReady() {
 	db.transaction(setUpDB, errorCB, successCB);
 
     //Set the path for the hearts one time in a variable since they will be altered in several spots
-	if (deviceType == 'Android') {
+	/*//if (deviceType == 'Android') {
 	    redHeart = '/android_asset/www/images/redHeart.png';
 	    blankHeart = '/android_asset/www/images/blankHeart.png';
 	    playButton = '/android_asset/www/images/play.png';
@@ -30,7 +30,7 @@ function onDeviceReady() {
 	    blankHeart = 'images/blankHeart.png';
 	    playButton = 'images/play.png';
 	    pauseButton = 'images/pause.png';
-	}
+	//}*/
 }
 
 
@@ -41,8 +41,8 @@ function onDeviceReady() {
 
         //
         function likeSongDB(tx) {
-            console.log('INSERT INTO StateTuning (state, song) VALUES ("' + state + '", "' + song + '")');
-            tx.executeSql('INSERT INTO StateTuning (state, song) VALUES ("' + state + '", "' + song + '")'); //Inserting two records for testing
+            console.log('INSERT INTO StateTuning (state, song) VALUES ("' + state + '", "' + songID + '")');
+            tx.executeSql('INSERT INTO StateTuning (state, song) VALUES ("' + state + '", "' + songID + '")'); //Inserting two records for testing
 
         }
         // Query all of the database
@@ -103,7 +103,7 @@ function updateTitle(data){
 
 function replacepage(data) {
 		/* Create a single song listing with the like heart as grey */
-        $('#statesongs').html('<li id="song" data-song=' + data.tunes[0].id + '><a href="#" class="btn large" onclick="playAudio(' + assetsURL+data.tunes[0].content + ')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' <img class="likeButton" src="' + blankHeart + '"></li>');
+        $('#statesongs').html('<li id="song" data-song=' + data.tunes[0].id + '><a href="#" class="btn large" onclick="playAudio(' + assetsURL+data.tunes[0].content + ')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' <img class="likeButton" src="images/blankHeart.png"></li>');
         playAudio(assetsURL+data.tunes[0].content);       
        
 /* TODO: when we have more than one song this will create a list of songs with the likes
@@ -129,7 +129,7 @@ function replacepage(data) {
                 }
             });
             //Change the heart image and remove the click functionality
-            $(this).attr("src", redHeart);
+            $(this).attr("src", "images/redHeart.png");
             $(this).unbind("click");
 
         });
