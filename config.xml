@@ -6,7 +6,7 @@
         version   = "1.0.0">    
 
     <gap:plugin name="BarcodeScanner" /> <!-- latest release -->
-    <gap:plugin name="ChildBrowser" /> <!-- latest release -->
+    <!--gap:plugin name="ChildBrowser" /> <!-- latest release -->
 
     <!-- versionCode is optional and Android only -->
 
@@ -22,8 +22,8 @@
     </author>
     
     <preference name="phonegap-version" value="2.7.0" />
-    <preference name="orientation" value="portrait" />
-    <!-- Icon Info 
+    <!--preference name="orientation" value="portrait" /-->
+    <!-- Icon Info -->
     <icon src="icons/icon.png" />
     
     <icon src="icons/icon.png" gap:platform="ios" width="57" height="57" />
@@ -35,5 +35,5 @@
     <icon src="icons/mdpi.png" gap:platform="android" gap:density="mdpi" />
     <icon src="icons/hdpi.png" gap:platform="android" gap:density="hdpi" />
     <icon src="icons/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
-    -->
+    
 </widget>
