@@ -29,32 +29,10 @@ function onDeviceReady() {
 	    pauseButton = 'images/pause.png';
 	}
 
-
-	$('.likeButton').click(function () {
-		song = $(this).parent().data('song');
-		//state = $('#state').data('state');
-
-		db.transaction(likeSongDB, errorCB, successCB);
-		$.ajax({
-			url: "http://216.186.69.45/services/like_tune/" + song,
-			type: 'PUT',
-			success: function (response) {
-				console.log('PUT Completed');
-			}
-		})
-		 if (deviceType == 'Android') {
-			 $(this).attr("src",'/android_asset/www/images/redHeart.png');
-		}
-		else {
-			$(this).attr("src",'images/redHeart.png');
-		}
-		
-	});
 }
 
 
         function setUpDB(tx) {
-            tx.executeSql('DROP TABLE IF EXISTS StateTuning'); // for testing purposes. remove from final product!
             tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning (id INTEGER primary key, state, song)'); //Creating the table of it doesn't exist
         }
 
@@ -118,22 +96,37 @@ function updateState()
 
 function updateTitle(data){
 	console.log(state);
-    fullStateName = data.state[0].name;
-	$("#statename").html(fullStateName);
+
 }
 
-function replacepage(data){
-		//creates list of songs with the likes
-		
-        $('#statesongs').html('<li id="song"><a href="#" class="btn large" onclick="playAudio(' + data.tunes[0].content + ')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' State Song - likes = ' + data.tunes[0].likes + '</li>');
-        playAudio("http://statetuned.cascadia.edu/assets/"+data.tunes[0].content);       
-        
-        var string = JSON.stringify(data);
-        console.log(string);
+function replacepage(data) {
 
+    //creates list of songs with the likes
+    $.each(data.tunes, function (key, item) {
+        $('#statesongs').append('<li id="song"><img class="mediaButton" src="images/play.png">' + item.content + '<img class="likeButton" src="' + blankHeart + '"></li>');;
+        $('#Statesongs li:last .mediaButton').click(playAudio(item.content));
+    });
 
         //picture
         var sizeSuffix = deviceType=="iPad"?"-med.png": "-small.png";
         $("#statepic").attr("src", 'images/' + state + sizeSuffix);
+
+
+        $('.likeButton').click(function () {
+            song = $(this).parent().data('song');
+            //state = $('#state').data('state');
+
+            db.transaction(likeSongDB, errorCB, successCB);
+            $.ajax({
+                url: "http://216.186.69.45/services/like_tune/" + song,
+                type: 'PUT',
+                success: function (response) {
+                    console.log('PUT Completed');
+                }
+            })
+            $(this).attr("src", redHeart);
+            $(this).unbind("click");
+
+        });
 		
 }

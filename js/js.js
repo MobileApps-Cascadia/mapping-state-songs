@@ -38,13 +38,24 @@ function playAudio(src) {
     // Create Media object from src
     my_media = new Media(src, onSuccess, onError, onStatusChange);
     // Play audio
+    $(this).attr('src', pauseButton);
+    $(this).unbind('click');
+    $(this).click(pauseAudio(src));
+
     my_media.play();
+
+    
 }
 
 // Pause audio
-function pauseAudio() {
+function pauseAudio(src) {
     if (my_media) {
         my_media.pause();
+
+        $(this).attr('src', playButton);
+        $(this).unbind('click');
+        $(this).click(playAudio(src));
+
     }
 }
 
