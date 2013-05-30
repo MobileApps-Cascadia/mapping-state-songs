@@ -1,4 +1,10 @@
-var song,songList; 
+var song,
+    songList,
+    redHeart,
+     blankHeart,
+     playButton,
+     pauseButton,
+     db;
 var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
 // wait until the device is ready
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -6,8 +12,23 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //
 function onDeviceReady() {
 	console.log("device ready");
-	var db = window.openDatabase("StateTuning", "1.0", "StateTuning", 200000);
+	db = window.openDatabase("StateTuning", "1.0", "StateTuning", 200000);
 	db.transaction(setUpDB, errorCB, successCB);
+
+    //Set the path for the hearts one time in a variable since they will be altered in several spots
+	if (deviceType == 'Android') {
+	    redHeart = '/android_asset/www/images/redHeart.png';
+	    blankHeart = '/android_asset/www/images/blankHeart.png';
+	    playButton = '/android_asset/www/images/play.png';
+	    pauseButton = '/android_asset/www/images/pause.png';
+	}
+	else {
+	    redHeart = 'images/redHeart.png';
+	    blankHeart = 'images/blankHeart.png';
+	    playButton = 'images/play.png';
+	    pauseButton = 'images/pause.png';
+	}
+
 
 	$('.likeButton').click(function () {
 		song = $(this).parent().data('song');
