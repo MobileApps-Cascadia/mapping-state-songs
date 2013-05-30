@@ -38,9 +38,9 @@ function playAudio(src) {
     // Create Media object from src
     my_media = new Media(src, onSuccess, onError, onStatusChange);
     // Play audio
-    $(this).attr('src', pauseButton);
-    $(this).unbind('click');
-    $(this).click(pauseAudio(src));
+    //$(this).attr('src', pauseButton);
+    //$(this).unbind('click');
+    //$(this).click(pauseAudio(src));
 
     my_media.play();
 
@@ -48,13 +48,13 @@ function playAudio(src) {
 }
 
 // Pause audio
-function pauseAudio(src) {
+function pauseAudio() {
     if (my_media) {
         my_media.pause();
 
-        $(this).attr('src', playButton);
-        $(this).unbind('click');
-        $(this).click(playAudio(src));
+       // $(this).attr('src', playButton);
+       // $(this).unbind('click');
+        //$(this).click(playAudio(src));
 
     }
 }
@@ -74,7 +74,7 @@ function onSuccess() {
 
 // onError Callback 
 function onError(error) {
-    alert('code: '    + error.code    + '\n' + 
+    alert('media play error code: '    + error.code    + '\n' + 
           'message: ' + error.message + '\n');
 }
 
