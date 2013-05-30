@@ -10,18 +10,30 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <!-- <icon src="images/logo.png" /> -->
     
     <name>State Tuned</name>
 
     <description>
-        Mapping State Songs project for Cascadia Community College.
+        Mapping State Songs Project, 2013, Cascadia Community College
     </description>
 
     <author href="http://cascadia.edu" email="brianb@cascadia.edu">
-        State Tuned Team
+        BIT 271 Class - Spring 2013 - Cascadia Community College
     </author>
     
     <preference name="phonegap-version" value="2.7.0" />
-
+    <preference name="orientation" value="portrait" />
+    <!-- Icon Info 
+    <icon src="icons/icon.png" />
+    
+    <icon src="icons/icon.png" gap:platform="ios" width="57" height="57" />
+    <icon src="icons/icon-72.png" gap:platform="ios" width="72" height="72" />
+    <icon src="icons/icon_at_2x.png" gap:platform="ios" width="114" height="114" />
+    <icon src="icons/icon-72_at_2x.png" gap:platform="ios" width="144" height="144" />
+    
+    <icon src="icons/ldpi.png" gap:platform="android" gap:density="ldpi" />
+    <icon src="icons/mdpi.png" gap:platform="android" gap:density="mdpi" />
+    <icon src="icons/hdpi.png" gap:platform="android" gap:density="hdpi" />
+    <icon src="icons/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+    -->
 </widget>
