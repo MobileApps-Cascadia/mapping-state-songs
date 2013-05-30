@@ -93,20 +93,31 @@ div[data-role="page"] {
 	width:25%;
 	text-align:right;
 }
-a.navButton:link, a.navButton:visited, a.navButton:hover {
-	padding: 10px 10px;
+
+.navButton {
 	background-color: #7597c7;
 	color:#fff !important;
 	text-shadow:none;
 	font-weight:normal;
 	font-size:18px;
-	line-height: 20px;
 	text-align: center;
-	border-radius: 15px;
 	display:block;
 	margin:5px 0;
-	width:90%;
-	max-width: 200px;
+	line-height: 52px;
+	border-radius: 10px;
+	width:102px;
+	height: 52px;
+}
+
+.facebook {
+	background:url(../images/Facebook_finished.png) no-repeat;
+	background-size:contain;
+	width:102px;
+	height: 52px;
+}
+
+.facebook div {
+	visibility:hidden;
 }
 
 #aboutPage p {
@@ -119,12 +130,22 @@ a.navButton:link, a.navButton:visited, a.navButton:hover {
 	color:blue;
 }
 
-*#aboutPage .scanContainer {
-	width: 40%;
-	float: right;
+
+#aboutPage .scanButton {
+	display: inline-block;
+	font-size:18px;
+	margin:0 20px;
+	padding: 0;
+	text-align: center;
+	line-height: 52px;
+	text-align: center;
+	border-radius: 10px;
+	width:102px;
+	height: 52px;
 }
-#aboutPage .navContainer  {
-	width: 40%;
+
+#aboutPage .navContainer > * {
+	display: inline-block;
 }
 
 .footer{
