@@ -20,14 +20,8 @@ function onDeviceReady() {
 			success: function (response) {
 				console.log('PUT Completed');
 			}
-		})
-		 if (deviceType == 'Android') {
-			 $(this).attr("src",'/android_asset/www/images/redHeart.png');
-		}
-		else {
-			$(this).attr("src",'images/redHeart.png');
-		}
-		
+		});
+		 $(this).attr("src",'images/redHeart.png');		
 	});
 }
 
