@@ -29,9 +29,11 @@ $(document).delegate("#map", "pageshow", function() {
 	
 	// Add the google map inside the #map-canvas div
 	function addMap(data) {
-		var lat = data.state[0].latitude, // Current state's latitude
+		var artworkImgSrc = "images/" + data.state[0].abv + "-small.png",
+			lat = data.state[0].latitude, // Current state's latitude
 			lon = data.state[0].longitude, // Current state's longitude
 			stateLatLon = new google.maps.LatLng(lat, lon); // create new LatLng object with the state's lat/lon
+		console.log(artworkImgSrc);
 		
 		// Determine the window size to set zoom
 		screenWidth = screen.width;
@@ -116,7 +118,7 @@ $(document).delegate("#map", "pageshow", function() {
 		
 		// Display an InfoBox containing the state artwork that points to the state
 		var infoWindow = new google.maps.InfoWindow({
-	    	content: "Testing Testing 123",
+	    	content: '<img class="artwork" src="' + artworkImgSrc + '">',
 	    	map: map,
 	    	position: stateLatLon
 	  	});
