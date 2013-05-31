@@ -118,7 +118,7 @@ function replacepage(data) {
 
 
         $('.likeButton').click(function () {
-            var songID = $(this).parent().data('songID');
+            songID = $(this).parent().data('songID');
             //Update the DB with a song LIKE
             db.transaction(likeSongDB, errorCB, successCB);
             $.ajax({
