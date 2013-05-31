@@ -52,7 +52,7 @@ function onDeviceReady() {
         //
         function queryDB(tx) {
         	var sqlSelect = "SELECT * FROM StateTuning WHERE state ='" + state + "'";
-            tx.executeSql(sqlSelect, [], console.log("sql select syntax: "+sqlSelect), querySuccess); 
+            tx.executeSql(sqlSelect, [], querySuccess, console.log("sql select syntax: "+sqlSelect)); 
         }
 
         // Query the success callback
