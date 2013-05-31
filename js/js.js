@@ -17,14 +17,18 @@ $(document).ready(function () {
 function scan() {
     window.plugins.barcodeScanner.scan(
         function(result) {
-            // Stop the currently playing song if one is playing
-            stopAudio();           
-            // retrieve the state url from the "song" string via AJAX call (TODO).
-            state = result.text;   
-            // Navigate to the page specified by first part of string.         
-            $.mobile.changePage( '#second' );            
-            // Automatically start playback of the state song (from local asset.)
-            updateState();
+        	if(results.cancelled){ //Go back to the main page if no luck scanning
+	        	$.mobile.changePage('#home');
+        	} else {
+	            // Stop the currently playing song if one is playing
+	            stopAudio();           
+	            // retrieve the state url from the "song" string via AJAX call (TODO).
+	            state = result.text;   
+	            // Navigate to the page specified by first part of string.         
+	            $.mobile.changePage( '#second' );            
+	            // Automatically start playback of the state song (from local asset.)
+	            updateState();
+            }
     }, function(error) {
         alert("Scan failed: " + error);
     });
