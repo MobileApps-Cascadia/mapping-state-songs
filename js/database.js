@@ -1,7 +1,7 @@
 var url = "http://statetuned.cascadia.edu/",
 	servicesURL = url+"services/",
 	assetsURL = url+"assets/",
-	song,
+	songID,
     songList,
     redHeart,
     blankHeart,
@@ -35,14 +35,14 @@ function onDeviceReady() {
 
 
         function setUpDB(tx) {
-            tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning (id INTEGER primary key, state, song)'); //Creating the table of it doesn't exist
+            tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning (id INTEGER primary key, state, songID)'); //Creating the table of it doesn't exist
         }
 
 
         //
         function likeSongDB(tx) {
-            console.log('INSERT INTO StateTuning (state, song) VALUES ("' + state + '", "' + songID + '")');
-            tx.executeSql('INSERT INTO StateTuning (state, song) VALUES ("' + state + '", "' + songID + '")'); //Inserting two records for testing
+            console.log('INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", "' + songID + '")');
+            tx.executeSql('INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", "' + songID + '")'); //Inserting two records for testing
 
         }
         // Query all of the database
@@ -57,7 +57,7 @@ function onDeviceReady() {
             var len = results.rows.length;
             console.log("StateTuning table: " + len + " rows found.");
             for (var i = 0; i < len; i++) {
-                console.log("Row = " + i + " ID = " + results.rows.item(i).id + " State =  " + results.rows.item(i).state + " Song = " + results.rows.item(i).song);
+                console.log("Row = " + i + " ID = " + results.rows.item(i).id + " State =  " + results.rows.item(i).state + " Song = " + results.rows.item(i).songID);
             }
         }
 
@@ -103,7 +103,7 @@ function updateTitle(data){
 
 function replacepage(data) {
 		/* Create a single song listing with the like heart as grey */
-        $('#statesongs').html('<li id="song" data-song=' + data.tunes[0].id + '><a href="#" class="btn large" onclick="playAudio(' + assetsURL+data.tunes[0].content + ')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' <img class="likeButton" src="images/blankHeart.png"></li>');
+        $('#statesongs').html('<li id="song" data-songID=' + data.tunes[0].id + '><a href="#" class="btn large" onclick="playAudio(' + assetsURL+data.tunes[0].content + ')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' <img class="likeButton" src="images/blankHeart.png"></li>');
         playAudio(assetsURL+data.tunes[0].content);       
        
 /* TODO: when we have more than one song this will create a list of songs with the likes
