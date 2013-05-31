@@ -140,7 +140,7 @@ function replacepage(data) {
     });
 */
         //Update the state picture
-        var sizeSuffix = deviceType=="iPad"?"-med.png": "-small.png";
+        var sizeSuffix = deviceType=="iPad"?"-medium.png": "-small.png";
         $("#statepic").attr("src", 'images/' + state + sizeSuffix);
        
 }
