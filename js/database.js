@@ -2,9 +2,10 @@ var url = "http://statetuned.cascadia.edu/",
 	servicesURL = url+"services/",
 	assetsURL = url+"assets/",
 	songID,
-    songList,
-    playButton,
-    pauseButton,
+	fullStateName,
+    //songList,
+    //playButton,
+    //pauseButton,
     db;
 var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
 // wait until the device is ready
@@ -44,7 +45,9 @@ function onDeviceReady() {
 
         //
         function likeSongDB(tx) {
-            tx.executeSql('INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", "' + songID + '")');
+        	var sqlInsert = 'INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", "' + songID + '")';
+        	console.log(sqlInsert);
+            tx.executeSql(sqlInsert);
         }
         // Query all of the database
         //
@@ -128,8 +131,8 @@ function replacepage(data) {
     db.transaction(queryDB, errorCB);
 
         /* Create a single song listing with the like heart as grey */
-        $('#statesongs').html('<li id="song" data-songid=' + data.tunes[0].id + '><a href="#" class="btn large" onclick="playAudio(' + assetsURL+data.tunes[0].content + ')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' </li>');
-        //playAudio(assetsURL+data.tunes[0].content);       
+        $('#statesongs').html('<li id="song" data-songid=' + data.tunes[0].id + '><a href="#" class="btn large" onclick="playAudio(\'' + assetsURL+data.tunes[0].content + '\')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' State Song </li>');
+        playAudio(assetsURL+data.tunes[0].content);       
        
 /* TODO: when we have more than one song this will create a list of songs with the likes. Need to fix heart references
     $.each(data.tunes, function (key, item) {
