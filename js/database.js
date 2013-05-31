@@ -39,19 +39,20 @@ function onDeviceReady() {
 
         function setUpDB(tx) {
            //tx.executeSql('DROP TABLE IF EXISTS StateTuning'); //this line is for testing the database
-            tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning ( state, songID)'); //Creating the table of it doesn't exist
+            tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning ( state unique, songID)'); //Creating the table of it doesn't exist
         }
 
 
         //
         function likeSongDB(tx) {
-        	var sqlInsert = 'INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", "' + songID + '")';
-            tx.executeSql(sqlInsert, [], console.log("successful insert: "+sqlInsert),console.log("insert error: "+sqlInsert));
+        	var sqlInsert = 'INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", ' + songID + ')';
+            tx.executeSql(sqlInsert, [], console.log("sql insert syntax: "+sqlInsert));
         }
-        // Query all of the database
+        // Query the database for the rows with this State
         //
         function queryDB(tx) {
-            tx.executeSql("SELECT * FROM StateTuning WHERE state ='" + state + "'", [], querySuccess, errorCB); // Quering the data for a single SongID (CHANGE WHEN MULTIPLE SONGS ARE ASSOCIATED)
+        	var sqlSelect = "SELECT * FROM StateTuning WHERE state ='" + state + "'";
+            tx.executeSql(sqlSelect, [], console.log("sql select syntax: "+sqlSelect), querySuccess); 
         }
 
         // Query the success callback
@@ -94,12 +95,6 @@ function onDeviceReady() {
             console.log("Error processing SQL: " + err.code);
         }
 
-        // Transaction success callback
-        //
-        function successCB() {
-            db.transaction(queryDB, errorCB);
-        }
-
         //============================================================================================================
 function updateState()
 	{
@@ -127,7 +122,7 @@ function updateTitle(data){
 }
 
 function replacepage(data) {
-    db.transaction(queryDB, errorCB);
+    db.transaction(queryDB, errorCB, console.log("State Tuning queried"));
 
         /* Create a single song listing with the like heart as grey */
         $('#statesongs').html('<li id="song" data-songid=' + data.tunes[0].id + '><a href="#" class="btn large" onclick="playAudio(\'' + assetsURL+data.tunes[0].content + '\')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' State Song </li>');
