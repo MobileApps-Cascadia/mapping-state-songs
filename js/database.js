@@ -14,8 +14,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //
 function onDeviceReady() {
 	console.log("device ready");
-	db = window.openDatabase("StateTuning", "1.0", "StateTuning", 200000);
-	db.transaction(setUpDB, errorCB, console.log('Database SetUp'));
+	db = window.openDatabase("StateTuning", "1.0", "StateTuning", 100000);
+	db.transaction(setUpDB, errorDB, successDB);
 
     //Set the path for the hearts one time in a variable since they will be altered in several spots
 	/*//if (deviceType == 'Android') {
@@ -39,7 +39,7 @@ function onDeviceReady() {
 
         function setUpDB(tx) {
            //tx.executeSql('DROP TABLE IF EXISTS StateTuning'); //this line is for testing the database
-            tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning ( state unique, songID)'); //Creating the table of it doesn't exist
+            tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning ( state unique, songID)', [], console.log("calling DB Setup")); //Creating the table of it doesn't exist
         }
 
 
@@ -69,7 +69,7 @@ function onDeviceReady() {
                 $('.likeButton').click(function () {
                     songID = $(this).parent().data('songid');
                     //Update the DB with a song LIKE
-                    db.transaction(likeSongDB, errorCB, console.log('Like was logged'));
+                    db.transaction(likeSongDB, errorDB, console.log('Like was logged'));
                     $.ajax({
                         url: "http://216.186.69.45/services/like_tune/" + songID,
                         type: 'PUT',
@@ -91,8 +91,11 @@ function onDeviceReady() {
 
         // Transaction error callback
         //
-        function errorCB(err) {
-            console.log("Error processing SQL: " + err.code);
+        function errorDB(err) {
+            console.log("Error with SQL: " + err.code + ", message: "+err.message);
+        }
+        function successDB(){
+	         console.log('Database SetUp Successful');
         }
 
         //============================================================================================================
@@ -122,7 +125,7 @@ function updateTitle(data){
 }
 
 function replacepage(data) {
-    db.transaction(queryDB, errorCB, console.log("State Tuning queried"));
+    db.transaction(queryDB, errorDB, console.log("State Tuning queried"));
 
         /* Create a single song listing with the like heart as grey */
         $('#statesongs').html('<li id="song" data-songid=' + data.tunes[0].id + '><a href="#" class="btn large" onclick="playAudio(\'' + assetsURL+data.tunes[0].content + '\')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' State Song </li>');
