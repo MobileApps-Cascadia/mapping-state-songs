@@ -127,7 +127,7 @@ function replacepage(data) {
     songURL = data.tunes[0].content;
     songID = data.tunes[0].id;
         /* Create a single song listing with the like heart as grey  and one button that toggle between play and pause */
-        $('#statesongs').html('<li id="song" data-songid=' + songID + '><img class="btn large" src="images/play.png" onclick="playAudio(\'' + assetsURL+songURL + '\')"> ' + fullStateName + ' State Song </li>');
+        $('#statesongs').html('<li id="song" data-songid=' + songID + '><img class="btn large" src="images/pause.png"> ' + fullStateName + ' State Song </li>');
         playAudio(assetsURL+songURL);       
        
 /* TODO: when we have more than one song this will create a list of songs with the likes. Need to fix heart references
