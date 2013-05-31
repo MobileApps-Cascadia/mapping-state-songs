@@ -103,7 +103,7 @@ function updateTitle(data){
 
 function replacepage(data) {
 		/* Create a single song listing with the like heart as grey */
-        $('#statesongs').html('<li id="song" data-songID=' + data.tunes[0].id + '><a href="#" class="btn large" onclick="playAudio(' + assetsURL+data.tunes[0].content + ')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' <img class="likeButton" src="images/blankHeart.png"></li>');
+        $('#statesongs').html('<li id="song" data-songid=' + data.tunes[0].id + '><a href="#" class="btn large" onclick="playAudio(' + assetsURL+data.tunes[0].content + ')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' <img class="likeButton" src="images/blankHeart.png"></li>');
         playAudio(assetsURL+data.tunes[0].content);       
        
 /* TODO: when we have more than one song this will create a list of songs with the likes
@@ -118,7 +118,7 @@ function replacepage(data) {
 
 
         $('.likeButton').click(function () {
-            songID = $(this).parent().data('songID');
+            songID = $(this).parent().data('songid');
             //Update the DB with a song LIKE
             db.transaction(likeSongDB, errorCB, successCB);
             $.ajax({
