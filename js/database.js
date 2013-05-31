@@ -36,34 +36,31 @@ function onDeviceReady() {
 	updateState();
     */
 }
-
+	//Creating the table of it doesn't exist
         function setUpDB(tx) {
-           tx.executeSql('DROP TABLE IF EXISTS StateTuning'); //this line is for testing the database
-            tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning ( state unique, songID)', [], console.log("calling DB Setup")); //Creating the table of it doesn't exist
+           //tx.executeSql('DROP TABLE IF EXISTS StateTuning'); //this line is for testing the database
+            tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning ( state unique, songID)'); 
         }
-
-
-        //
+    // Logging a Like for a song locally
         function likeSongDB(tx) {
-        	var sqlInsert = 'INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", ' + songID + ')';
-            tx.executeSql(sqlInsert, [], console.log("sql insert syntax: "+sqlInsert));
+        	//var sqlInsert = 'INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", ' + songID + ')';
+            tx.executeSql('INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", ' + songID + ')');
         }
-        // Query the database for the rows with this State
-        //
+   // Query the database for a row with this State
         function queryDB(tx) {
-        	var sqlSelect = "SELECT * FROM StateTuning WHERE state ='" + state + "'";
-            tx.executeSql(sqlSelect, [], querySuccess, console.log("sql select syntax: "+sqlSelect)); 
+        	//var sqlSelect = "SELECT * FROM StateTuning WHERE state ='" + state + "'";
+            tx.executeSql("SELECT * FROM StateTuning WHERE state ='" + state + "'", [], querySuccess); 
         }
 
-        // Query the success callback
-        //
+   // Test for State match after a successful query
         function querySuccess(tx, results) {
             var len = results.rows.length;
+            /* //Loop through the results
             console.log("StateTuning table: " + len + " rows found.");
             for (var i = 0; i < len; i++) {
                 console.log("Row = " + i + " ID = " + results.rows.item(i).id + " State =  " + results.rows.item(i).state + " Song = " + results.rows.item(i).songID);
-            }
-            if (len == 0) {
+            }*/
+            if (len == 0) { // The current State is not in the DB
                 $('#song').append('<img class="likeButton" src="images/blankHeart.png">');
 
                 $('.likeButton').click(function () {
@@ -83,7 +80,7 @@ function onDeviceReady() {
 
                 });
             }
-            else
+            else // Found the State locally
                 $('#song').append('<img class="likeButton" src="images/redHeart.png">');
 
 
