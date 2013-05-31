@@ -46,8 +46,7 @@ function onDeviceReady() {
         //
         function likeSongDB(tx) {
         	var sqlInsert = 'INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", "' + songID + '")';
-        	console.log(sqlInsert);
-            tx.executeSql(sqlInsert);
+            tx.executeSql(sqlInsert, [], console.log("successful insert: "+sqlInsert),console.log("insert error: "+sqlInsert);
         }
         // Query all of the database
         //
