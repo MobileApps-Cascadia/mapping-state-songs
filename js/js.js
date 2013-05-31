@@ -81,4 +81,10 @@ function onError(error) {
 // onStatus Callback
 function onStatusChange(status) {
     console.log(status);
+    if(status==2){ //song is playing, set button to pause - SINGLE SONG ONLY
+	    $("li#song>img").attr("src","images/pause.png").click(function(){pauseAudio()});
+    }
+    else if(status==3){ //song is paused, set button to play - SINGLE SONG ONLY
+	    $("li#song>img").attr("src","images/play.png").click(function(){playAudio(assetsURL+songURL)});    
+    }    
 }

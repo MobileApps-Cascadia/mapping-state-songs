@@ -2,6 +2,7 @@ var url = "http://statetuned.cascadia.edu/",
 	servicesURL = url+"services/",
 	assetsURL = url+"assets/",
 	songID,
+	songURL,
 	fullStateName,
     //songList,
     //playButton,
@@ -64,7 +65,7 @@ function onDeviceReady() {
                 $('#song').append('<img class="likeButton" src="images/blankHeart.png">');
 
                 $('.likeButton').click(function () {
-                    songID = $(this).parent().data('songid');
+                    var songID = $(this).parent().data('songid');
                     //Update the DB with a song LIKE
                     db.transaction(likeSongDB, errorDB, console.log('Like was logged'));
                     $.ajax({
@@ -123,10 +124,11 @@ function updateTitle(data){
 
 function replacepage(data) {
     db.transaction(queryDB, errorDB, console.log("State Tuning queried"));
-
-        /* Create a single song listing with the like heart as grey */
-        $('#statesongs').html('<li id="song" data-songid=' + data.tunes[0].id + '><a href="#" class="btn large" onclick="playAudio(\'' + assetsURL+data.tunes[0].content + '\')"><img src="images/play.png"></a><a href="#" class="btn large" onclick="pauseAudio()"><img src="images/pause.png"></a>' + fullStateName + ' State Song </li>');
-        playAudio(assetsURL+data.tunes[0].content);       
+    songURL = data.tunes[0].content;
+    songID = data.tunes[0].id;
+        /* Create a single song listing with the like heart as grey  and one button that toggle between play and pause */
+        $('#statesongs').html('<li id="song" data-songid=' + songID + '><img class="btn large" src="images/play.png" onclick="playAudio(\'' + assetsURL+songURL + '\')"> ' + fullStateName + ' State Song </li>');
+        playAudio(assetsURL+songURL);       
        
 /* TODO: when we have more than one song this will create a list of songs with the likes. Need to fix heart references
     $.each(data.tunes, function (key, item) {
