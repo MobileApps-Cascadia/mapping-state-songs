@@ -1,3 +1,8 @@
+* {
+	margin:0;
+	padding:0;
+}
+
 body {
 	width:100%;
 	height:100%;
@@ -7,6 +12,7 @@ a:link, a:visited, a:hover {
 	color:#fff;
 	text-decoration:none;
 }
+
 .ui-btn, .ui-btn-inner, .ui-btn-text, .ui-btn-up-a, .ui-shadow {
 	background:none;
 	color:#fff;
@@ -29,9 +35,6 @@ div[data-role="page"] {
 	width:100%;
 	height:100%;
 }
-li {
-	list-style-type: none;
-}
 #home .header {
 	background-image:url(../images/logo.png);
 	position:relative;
@@ -53,8 +56,6 @@ li {
 #home .map img {
 	width:90%;
 	margin-top:10%;
-	margin-left:auto;
-	margin-right:auto;
 }
 
 #home .scanContainer{
@@ -64,7 +65,8 @@ li {
 	text-align:center;
 	z-index:20;
 }
-#home .scanButton {
+
+*.scanButton {
 	background:#102c6e;
 	color:#fff;
 	font-weight:normal;
@@ -91,29 +93,58 @@ li {
 	z-index:10;
 }
 
-#aboutPage .scanButton {width: 25%;}
-
-#aboutPage p {text-align:left;}
-
-#aboutPage .ui-content{padding: 5px;}
-
-#aboutPage ul {
-	list-style-type:square;
-	text-align:left;
-}
-a.navButton:link, a.navButton:visited, a.navButton:hover {
+.navButton {
 	display:inline-block;
 	margin:0 20px;
-	padding: 10px 10px;
 	background-color: #7597c7;
-	color:#fff;
+	color:#fff !important;
 	text-shadow:none;
 	font-weight:normal;
 	font-size:18px;
-	line-height: 20px;
+	line-height: 52px;
 	text-align: center;
-	border-radius: 15px;
+	border-radius: 10px;
+	width:102px;
+	height: 52px;
 }
+
+.facebook {
+	background:url(../images/Facebook_finished.png) no-repeat;
+	background-size:contain;
+	width:102px;
+	height: 52px;
+}
+
+.facebook div {
+	visibility:hidden;
+}
+
+#aboutPage p {
+	text-align:left;
+}
+
+#aboutPage ul {list-style-type:none;}
+
+#aboutPage .blue  {
+	color:blue;
+}
+
+
+#aboutPage .scanButton {
+	display: inline-block;
+	font-size:18px;
+	margin:0 20px;
+	padding: 0;
+	text-align: center;
+	line-height: 52px;
+	text-align: center;
+	border-radius: 10px;
+	width:102px;
+	height: 52px;
+}
+
+
+
 
 .footer{
 	position:relative;
@@ -125,28 +156,39 @@ a.navButton:link, a.navButton:visited, a.navButton:hover {
 	height:25%;
 }
 
-@media (orientation:landscape) {
+/* Main app footer - Temp styles for readability */
+div[data-role="footer"] {
+	background-color: blue;
+}
+
+/* Scan button was way too huge in app footer */
+div[data-role="footer"] .scanButton {
+	width: auto;
+	padding: 10px;
+}
+
+/* Map button - temp styling */
+
+#second a[href="#map"] {
+	background-color: #7597c7;
+}
+
+@media (orientation : landscape) {
 #home .header {
 	background-position:top left;
 	height: 40%;
 }
 
 #home .map {
+	height:50%;
 	position:absolute;
 	top:20%;
 	width:50%;
 	left:10%;
 }
-
 #home .map img {
-	width:90%;
-	margin-top:10%;
 	margin-left:auto;
 	margin-right:auto;
-}
-
-.footer {
-	height:60%;
 }
 
 #home .scanContainer{
@@ -155,41 +197,48 @@ a.navButton:link, a.navButton:visited, a.navButton:hover {
 	right:20px;
 	text-align:right;
 }
+
+*.scanButton {
+	width:90%;
+	max-width: 200px;
+	margin: 0;
+}
+
 #home .navContainer {
 	top:50%;
 	right:20px;
 	width:25%;
 	text-align:right;
 }
-a.navButton:link, a.navButton:visited, a.navButton:hover {
+
+
+.navButton {
 	display:block;
 	margin:5px 0;
-	width:90%;
-	max-width: 200px;
 }
 
-#home .scanButton {
-	width:90%;
-	max-width: 200px;
-	margin: 0;
+#aboutPage .navContainer > * {
+	display: inline-block;
+}
+
+.footer{
+	height:60%;
 }
 
 }
 
-/*iPads (landscape)*/
-@media (min-width : 768px) 
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
 and (orientation : landscape) {
-#home .map {
-	position:absolute;
-	top:20%;
-	width:50%;
-	left:20%;
+/* Styles */
 }
 
-#home .map img {
-	width:90%;
-	margin-top:10%;
-	margin-left:auto;
-	margin-right:auto;
-}	
-}
