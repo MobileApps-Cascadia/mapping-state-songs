@@ -80,7 +80,7 @@ function onError(error) {
 
 // onStatus Callback
 function onStatusChange(status) {
-    console.log(status);
+    //console.log(status);
     if(status==2){ //song is playing, set button to pause - SINGLE SONG ONLY
 	    $("li#song>img:first").unbind("click").attr("src","images/pause.png").click(function(){pauseAudio()});
     }
