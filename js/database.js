@@ -39,7 +39,7 @@ function onDeviceReady() {
 
         function setUpDB(tx) {
            //tx.executeSql('DROP TABLE IF EXISTS StateTuning'); //this line is for testing the database
-            tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning (id INTEGER primary key, state, songID)'); //Creating the table of it doesn't exist
+            tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning ( state, songID)'); //Creating the table of it doesn't exist
         }
 
 
