@@ -17,7 +17,7 @@ $(document).ready(function () {
 function scan() {
     window.plugins.barcodeScanner.scan(
         function(result) {
-        	if(results.cancelled){ //Go back to the main page if no luck scanning
+        	if(result.cancelled){ //Go back to the main page if no luck scanning
 	        	$.mobile.changePage('#home');
         	} else {
 	            // Stop the currently playing song if one is playing
