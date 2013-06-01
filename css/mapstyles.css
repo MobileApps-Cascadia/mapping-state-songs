@@ -23,7 +23,7 @@
 	margin: 0 auto;
 	width: 98%;
 	box-shadow: 0 0 10px rgba(0,0,0, .8);
-	max-height: 500px;
+	margin-bottom: -100px;
 }
 
 /* Remove close button on InfoWindow for state */
