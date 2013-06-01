@@ -185,12 +185,3 @@ $(document).delegate("#map", "pagehide", function() {
 	// Empty the contents of the #map-canvas div
 	$('#map #map-canvas').empty();
 });
-
-
-
-
-
-
-
-
-

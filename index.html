@@ -48,6 +48,8 @@
             	<!--<a class="second navButton" href="#second"><div>second</div></a>-->
                 <a class="about navButton" href="#aboutPage"></a>
                 <a class="facebook navButton" href="http://www.facebook.com/statetuned" target="_blank"></a>
+                <!-- TEMP -->
+                <a class="navButton" href="#map">Map</a>
         	</div>
         </div>
     </div>
@@ -101,9 +103,6 @@
 
 	<!-- Page: Map Page -->
 	<div id="map" data-role="page" data-title="StateTuned: Map Screen">
-		<div data-role="header" data-position="fixed">
-			<!-- nothing in header yet -->
-		</div>
 		<div data-role="content">
 			<h3>
 				<!-- State name injected here by map.js -->
@@ -112,12 +111,15 @@
         		<!-- Google Map injected here by map.js -->
         	</div>
 		</div>
-		<div data-role="footer" data-position="fixed">
-			<a href="#second" data-rel="back" data-icon="back">Back</a>
-			<a class="scanButton" data-role="button">Scan</a>
-			<a class="aboutButton" data-role="button" href="#aboutPage">About</a>
-			<a class="FBButton" data-role="button" href="http://www.facebook.com/statetuned" target="_blank">FB</a>
-		</div>
+		<div class="navContainer">  
+            <div class="nav">
+            	<a class="backButton navButton" data-rel="back"></a>
+            	<a class="home navButton" href="#home"></a>
+                <div class="scanButton navButton"></div>
+                <a class="about navButton" href="#aboutPage"></a>
+                <a class="facebook navButton" href="http://www.facebook.com/statetuned" target="_blank"></a>
+            </div>
+        </div>
 	</div>
 	
 	<!-- Dialog Content -->

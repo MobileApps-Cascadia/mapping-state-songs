@@ -35,3 +35,22 @@
 	display: block;
 	margin: 0 auto;
 }
+
+/* Navigation on map page */
+#map > .navContainer {
+	position: absolute;
+	bottom: 0;
+}
+
+/* Navigation on map page in landscape mode */
+@media (orientation : landscape) {
+	#map-canvas { width: 75%; }
+	
+	#map > .navContainer {
+		position:absolute;
+		top:50px;
+		right:20px;
+		width:20%;
+		text-align:right;
+	}
+}
