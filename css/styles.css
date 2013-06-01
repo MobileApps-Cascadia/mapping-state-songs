@@ -3,9 +3,22 @@
 	padding:0;
 }
 
+ul {list-style-type:none;}
+
+p {
+	text-align:left;
+	margin: 10px 20px 0 20px;
+}
+
 body {
 	width:100%;
 	height:100%;
+	background-image:url(../images/footer-bg.png), url(../images/bg.jpg);
+	background-repeat:no-repeat;
+	/*background-size:cover;*/
+	background-position:bottom left, center top;
+	background-attachment:fixed;
+
 	font-family:Arial, Helvetica, sans-serif;
 }
 a:link, a:visited, a:hover {
@@ -26,10 +39,10 @@ a:link, a:visited, a:hover {
 }
 
 div[data-role="page"] {
-	background-image:url(../images/bg.jpg);
+	background-image:url(../images/footer-bg.png), url(../images/bg.jpg);
 	background-repeat:no-repeat;
-	background-size:cover;
-	background-position:center top;
+	/*background-size:cover;*/
+	background-position:bottom left, center top;
 	background-attachment:fixed;
 	text-align:center;
 	width:100%;
@@ -67,25 +80,45 @@ div[data-role="page"] {
 }
 
 
-*.scanButton {
+.scanButton {
 	background:#102c6e;
 	color:#fff;
 	font-weight:normal;
-	font-size:36px;
-	width:50%;
-	line-height: 40px;
-	margin:0 auto;
-	padding: 20px 10px;
-	text-align: center;
 	background-image:-webkit-gradient(linear,left top,left bottom,from( #fff ),to( #102c6e ));
 	background-image:-webkit-linear-gradient( #fff,#102c6e 60%, #102c6e );
 	background-image:-moz-linear-gradient( #fff,#102c6e 60%, #102c6e );
 	background-image:-ms-linear-gradient( #fff,#102c6e 60%, #102c6e );
 	background-image:-o-linear-gradient( #fff,#102c6e 60%, #102c6e );
 	background-image:linear-gradient( #fff,#102c6e 60%, #102c6e );
-	border-radius: 15px;
+	display: inline-block;
+	font-size:18px;
+	margin:0 20px;
+	padding: 0;
+	text-align: center;
+	line-height: 52px;
+	border-radius: 10px;
+	width:102px;
+	height: 52px;
+
 }
 
+#home .scanButton {
+	display:block;
+	font-size:36px;
+	width:50%;
+	line-height: 40px;
+	margin:0 auto;
+	padding: 20px 10px;
+}
+
+
+.navContainer {
+	text-align:center;
+	width:100%;
+	z-index:10;
+	padding-top:20px;
+	padding-bottom: 20px;
+}
 
 #home .navContainer {
 	position:absolute;
@@ -93,6 +126,7 @@ div[data-role="page"] {
 	text-align:center;
 	width:100%;
 	z-index:10;
+	margin-top:0;
 }
 
 .navButton {
@@ -121,30 +155,10 @@ div[data-role="page"] {
 	visibility:hidden;
 }
 
-#aboutPage p {
-	text-align:left;
-}
-
-#aboutPage ul {list-style-type:none;}
 
 #aboutPage .blue  {
 	color:blue;
 }
-
-
-#aboutPage .scanButton {
-	display: inline-block;
-	font-size:18px;
-	margin:0 20px;
-	padding: 0;
-	text-align: center;
-	line-height: 52px;
-	text-align: center;
-	border-radius: 10px;
-	width:102px;
-	height: 52px;
-}
-
 
 .footer{
 	position:relative;
@@ -156,22 +170,73 @@ div[data-role="page"] {
 	height:25%;
 }
 
-/* Main app footer - Temp styles for readability */
-div[data-role="footer"] {
-	background-color: blue;
-}
-
-/* Scan button was way too huge in app footer */
-div[data-role="footer"] .scanButton {
-	width: auto;
-	padding: 10px;
+#second .footer {
+	height:150px;
 }
 
 /* Map button - temp styling */
+#statename, #aboutPage h2 {
+	color: #102c6e;
+	margin: 10px auto;
+}
+
+#statesongs {
+	posiiton:relative;
+	margin: 10px auto;
+	width: 90%;
+	border: 3px solid #ccc;	
+}
+	
+#statesongs li {
+	padding: 10px;
+	border-bottom: 2px solid #ccc;
+	font-size: 18px;
+}
+
+#statesongs a img {
+	display:inline-block;
+}
 
 #second a[href="#map"] {
 	background-color: #7597c7;
+	display:block;
+	margin:0 auto;
+	color:#fff !important;
+	text-shadow:none;
+	font-weight:normal;
+	font-size:18px;
+	line-height: 80px;
+	text-align: center;
+	border-radius: 40px;
+	width:80px;
+	height: 80px;
+	-webkit-box-shadow:  0px 0px 5px #555;
+	-moz-box-shadow:  0px 0px 5px #555;
+	-ms-box-shadow:  0px 0px 5px #555;
+	box-shadow:  0px 0px 5px #555;
 }
+/*
+#second a[href="#map"] {
+	background-color: white;
+	color: #7597c7;
+	display:block;
+	margin:0 auto;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:28px;
+	line-height: 36px;
+	height:36px;
+	width: 70px;
+	text-align: center;
+	padding: 20px;
+	border:thin solid #aaa;
+	-webkit-box-shadow:  inset 0px 0px 30px #777;
+	-moz-box-shadow:  inset 0px 0px 30px #7775;
+	-ms-box-shadow:  inset 0px 0px 30px #777;
+	box-shadow:  inset 0px 0px 30px #777;
+	border-radius: 30px;
+}*/
+
 
 @media (orientation : landscape) {
 #home .header {
@@ -191,12 +256,13 @@ div[data-role="footer"] .scanButton {
 	margin-right:auto;
 }
 
-#home .scanContainer{
+#home .scanContainer {
 	top:10%;
 	width:25%;
 	right:20px;
 	text-align:right;
 }
+
 
 
 #home .scanButton {
@@ -206,15 +272,20 @@ div[data-role="footer"] .scanButton {
 	float:right;
 }
 
-#home .navContainer {
+#home .navContainer, #second .navContainer {
+	position:absolute;
 	top:50%;
 	right:20px;
-	width:25%;
+	width:20%;
 	text-align:right;
 }
 
+#second .navContainer{
+	top: 10%;
+}
 
-#home .navButton {
+
+#home .navButton,  #second .navButton{
 	display:block;
 	margin:5px 0;
 	float:right;
@@ -225,10 +296,35 @@ div[data-role="footer"] .scanButton {
 	display: inline-block;
 }
 
-.footer{
+#home .footer{
 	height:60%;
 }
 
+#second .content {
+	width: 80%;
+}
+#statepic {
+	position:relative;
+	width: 45%;
+	float:left;
+}
+
+#statesongs {
+	posiiton:relative;
+	margin: 10px auto;
+	float:left;
+	width: 53%;
+	border: 3px solid #ccc;	
+}
+
+#statesongs li {
+	padding-left:5px;
+	padding-right: 5px;
+}
+
+#second a[href="#map"] {
+	float:left;
+}
 }
 
 /* iPads (portrait) ----------- */
