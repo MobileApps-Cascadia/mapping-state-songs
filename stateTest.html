@@ -10,7 +10,7 @@
 	<!-- <script src="http://debug.phonegap.com/target/target-script-min.js#StateTuned"></script> -->	
 	<link rel="stylesheet" href="css/jquery.mobile.structure-1.3.0.min.css" />
 	<script src="js/jquery-1.9.1.min.js"></script>
-	<script src="js/jquery.mobile-1.3.0.min.js"></script>
+	<!--<script src="js/jquery.mobile-1.3.0.min.js"></script>-->
 	
 	<!-- Google Maps scripts -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb7T4kSmVck4URg07rWdjgRLwVNZuw_B4&sensor=false"></script>
@@ -36,25 +36,24 @@
 	<div id="second"
 		data-role="page"
 		data-title="StateTuned: State Screen">
-		<div data-role="header"
-			data-position="fixed">	
-		</div>
-		<div data-role="content">
+		<div class="content">
 			<h1 id="statename">Washington</h1>	
-			<!-- <img id="statepic" alt="State Artwork" src="images/WA-small.png"> -->
-			<img id="statepic" alt="State Artwork" src="images/WA-medium.png">
+			<img id="statepic" alt="State Artwork" src="images/WA-small.png">
+			<!--<img id="statepic" alt="State Artwork" src="images/WA-medium.png">-->
             <ul id="statesongs">
             	<li id="song" data-songid=97><a href="#" class="btn large" onclick=""><img src="images/play.png"></a><a href="#" class="btn large" onclick=""><img src="images/pause.png"></a>Washington State Song <img class="likeButton" src="images/blankHeart.png"></li>
             </ul>
             <a href="#map" data-role="button" data-icon="arrow-r" data-iconpos="right">Map</a>
-			<div data-role="footer" data-position="fixed">
-				<a class="scanButton" data-role="button">Scan</a>
-				<a class="aboutButton" data-role="button" href="#aboutPage">About</a>
-				<a class="FBButton" data-role="button" href="http://www.facebook.com/statetuned" target="_blank">FB</a>
-            </div>
 		</div>
+        <div class="navContainer">  
+            <div class="nav"> 
+                <div class="scanButton navButton">Scan</div>
+                <a class="about navButton" href="#aboutPage"><div>ABOUT</div></a>
+                <a class="facebook navButton" href="http://www.facebook.com/statetuned" target="_blank"><div>FACEBOOK</div></a>
+            </div>
+        </div>
+
 	</div>	
-	
 	
 </body>
 </html>
