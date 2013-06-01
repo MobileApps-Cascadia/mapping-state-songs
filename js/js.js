@@ -18,6 +18,8 @@ function scan() {
     window.plugins.barcodeScanner.scan(
         function(result) {
         	if(result.cancelled){ //Go back to the main page if no luck scanning
+	            // Stop the currently playing song if one is playing
+	            stopAudio();           
 	        	$.mobile.changePage('#home');
         	} else {
 	            // Stop the currently playing song if one is playing
