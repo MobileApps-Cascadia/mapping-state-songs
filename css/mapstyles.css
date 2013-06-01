@@ -12,6 +12,7 @@
 	line-height: 50px;
 	color: white;
 	font-size: 1.5em;
+	z-index: 2;
 }
 
 /* The map container */
@@ -23,11 +24,11 @@
 	width: 98%;
 	border-radius: 20px;
 	box-shadow: 0 0 10px rgba(0,0,0, .8);
-	/* height calculated in map.js */
+	max-height: 75%;
 }
 
-/* The actual map */
-#map-canvas > div {
+/* Round map corners */
+#map-canvas > div, #map-canvas > div + div {
 	border-radius: 20px;
 }
 
