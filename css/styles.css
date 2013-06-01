@@ -81,6 +81,13 @@ div[data-role="page"] {
 
 
 .scanButton {
+	background:url(../images/fbScan.fw.png) no-repeat;
+	background-size:contain;
+	width:102px;
+	height: 52px;
+}
+
+#home .scanButton {
 	background:#102c6e;
 	color:#fff;
 	font-weight:normal;
@@ -99,10 +106,6 @@ div[data-role="page"] {
 	border-radius: 10px;
 	width:102px;
 	height: 52px;
-
-}
-
-#home .scanButton {
 	display:block;
 	font-size:36px;
 	width:50%;
@@ -116,7 +119,7 @@ div[data-role="page"] {
 	text-align:center;
 	width:100%;
 	z-index:10;
-	padding-top:20px;
+	padding-top:30px;
 	padding-bottom: 20px;
 }
 
@@ -131,7 +134,6 @@ div[data-role="page"] {
 
 .navButton {
 	display:inline-block;
-	margin:0 20px;
 	background-color: #7597c7;
 	color:#fff !important;
 	text-shadow:none;
@@ -142,23 +144,29 @@ div[data-role="page"] {
 	border-radius: 10px;
 	width:102px;
 	height: 52px;
+	margin:0 3px;
 }
 
-.facebook {
-	background:url(../images/Facebook_finished.png) no-repeat;
+#home navButton {
+		margin:0 20px;
+}
+.home {
+	background:url(../images/fbHome.fw.png) no-repeat;
 	background-size:contain;
-	width:102px;
-	height: 52px;
+}
+.backButton {
+	background:url(../images/fbBack.fw.png) no-repeat;
+	background-size:contain;
+}
+.about {
+	background:url(../images/fbAbout.fw.png) no-repeat;
+	background-size:contain;
+}
+.facebook {
+	background:url(../images/fbFB.fw.jpg) no-repeat;
+	background-size:contain;
 }
 
-.facebook div {
-	visibility:hidden;
-}
-
-
-#aboutPage .blue  {
-	color:blue;
-}
 
 .footer{
 	position:relative;
@@ -174,8 +182,7 @@ div[data-role="page"] {
 	height:150px;
 }
 
-/* Map button - temp styling */
-#statename, #aboutPage h2 {
+#statename, #aboutPage h1, #aboutPage h2 {
 	color: #102c6e;
 	margin: 10px auto;
 }
@@ -195,6 +202,7 @@ div[data-role="page"] {
 
 #statesongs a img {
 	display:inline-block;
+	padding: 5px;
 }
 
 #second a[href="#map"] {
@@ -214,6 +222,10 @@ div[data-role="page"] {
 	-moz-box-shadow:  0px 0px 5px #555;
 	-ms-box-shadow:  0px 0px 5px #555;
 	box-shadow:  0px 0px 5px #555;
+}
+
+#aboutPage .blue {
+	color: blue;
 }
 /*
 #second a[href="#map"] {
@@ -324,6 +336,7 @@ div[data-role="page"] {
 
 #second a[href="#map"] {
 	float:left;
+	margin-left:20%;
 }
 }
 
@@ -332,21 +345,37 @@ div[data-role="page"] {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) {
 /* Styles */
+
+
+#home .scanButton {
+	margin:0 auto;
+	padding: 0;
+	height: 78px;
+	font-weight:bold;
+	border-radius: 15px;
+	font-weight:bold;
+	font-size:48px;
+	width:40%;
+	line-height: 78px;
+	padding: 20px 20px;
+}
+
+#statename, #aboutPage h1, #aboutPage h2 {
+	color: #102c6e;
+	margin: 10px auto;
+	font-size: 2.5em;
+}
+
+.navContainer {
+	margin-top: 40px;
+}
+
 #home .navContainer {
 	top:80%;
 }
 
-*.scanButton {
-	font-weight:bold;
-	font-size:48px;
-	width:40%;
-	line-height: 104px;
-	padding: 20px 20px;
-}
-
-
 .navButton {
-	margin:0 40px;
+	margin:0 10px;
 	font-size:36px;
 	font-weight:bold;
 	line-height: 78px;
@@ -354,15 +383,22 @@ and (max-device-width : 1024px) {
 	width:153px;
 	height: 78px;
 }
-#aboutPage .scanButton {
-	font-size:36px;
+
+#home .navButton {
 	margin:0 40px;
-	padding: 0;
-	width:153px;
-	height: 78px;
-	font-weight:bold;
-	line-height: 78px;
-	border-radius: 15px;
+}
+
+#second a[href="#map"] {
+	font-size:24px;
+	line-height: 100px;
+	text-align: center;
+	border-radius: 50px;
+	width:100px;
+	height: 100px;
+	-webkit-box-shadow:  0px 0px 5px #555;
+	-moz-box-shadow:  0px 0px 5px #555;
+	-ms-box-shadow:  0px 0px 5px #555;
+	box-shadow:  0px 0px 5px #555;
 }
 
 }
@@ -405,6 +441,21 @@ and (orientation : landscape) {
 	display:block;
 	margin:5px 0;
 	float:right;
+}
+
+#statepic {
+	width: auto;
+	float:none;
+}
+
+#statesongs {
+	float:none;
+	width: 90%;
+}
+
+#second a[href="#map"] {
+	float: none;
+	margin: 20px auto;
 }
 }
 
