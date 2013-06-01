@@ -22,14 +22,8 @@
 	display: block;
 	margin: 0 auto;
 	width: 98%;
-	border-radius: 20px;
 	box-shadow: 0 0 10px rgba(0,0,0, .8);
-	max-height: 75%;
-}
-
-/* Round map corners */
-#map-canvas > div, #map-canvas > div + div {
-	border-radius: 20px;
+	max-height: 500px;
 }
 
 /* Remove close button on InfoWindow for state */
