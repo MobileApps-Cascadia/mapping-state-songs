@@ -113,7 +113,7 @@ $(document).delegate("#map", "pageshow", function() {
 		} else {
 			map.setZoom(3);
 		}
-		$('#map-canvas').height(screenHeight);
+		$('#map-canvas').height(screenHeight - 100);
 		
 		// Set the options set in the stylesArray
 		map.setOptions({styles: stylesArray});
@@ -136,7 +136,7 @@ $(document).delegate("#map", "pageshow", function() {
 			} else {
 				map.setZoom(3);
 			}
-			$('#map-canvas').height(screenHeight);
+			$('#map-canvas').height(screenHeight - 100);
 			map.setCenter(centerOfUSA);
 		});
 		
