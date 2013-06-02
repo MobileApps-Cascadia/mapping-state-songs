@@ -16,7 +16,6 @@ $(document).delegate("#map", "pageshow", function() {
 	zoomLevel, // The zoom level (larger sreens should be zoomed in more)
 	screenWidth, // The width of the screen
 	screenHeight, // The height of the map
-	centerOfUSA = new google.maps.LatLng(35, -96), // The center Lat/Lon of the USA
 	stateName = $('#statename'); // The current state's name
 	
 	// Add the stateName inside the <h3></h3> tag on the #map page
@@ -36,7 +35,6 @@ $(document).delegate("#map", "pageshow", function() {
 			lat = data.state[0].latitude, // Current state's latitude
 			lon = data.state[0].longitude, // Current state's longitude
 			stateLatLon = new google.maps.LatLng(lat, lon); // create new LatLng object with the state's lat/lon
-		console.log(artworkImgSrc);
 		
 		// Determine the window size to set zoom
 		screenWidth = screen.width;
@@ -103,6 +101,8 @@ $(document).delegate("#map", "pageshow", function() {
 		
 		// Create the new Google Map with the above mapOptions
 		map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+		// Set the options set in the stylesArray
+		map.setOptions({styles: stylesArray});
 		
 		// Determine the screen size
 		screenWidth = screen.width;
@@ -113,13 +113,15 @@ $(document).delegate("#map", "pageshow", function() {
 		} else {
 			map.setZoom(3);
 		}
-		$('#map-canvas').height(screenHeight - 200);
+		// Determine if landscape or portrait, then set #map-canvas height
+		if (Math.abs(window.orientation) === 90) { // landscape
+			$('#map-canvas').height(screenHeight - 75);
+		} else { // portrait
+			$('#map-canvas').height(screenHeight - 140);
+		}
 		
-		// Set the options set in the stylesArray
-		map.setOptions({styles: stylesArray});
 		
-		
-		// Display an InfoBox containing the state artwork that points to the state
+		// Display an InfoWindow containing the state artwork that points to the state
 		var infoWindow = new google.maps.InfoWindow({
 	    	content: '<img class="artwork" src="' + artworkImgSrc + '">',
 	    	map: map,
@@ -136,8 +138,13 @@ $(document).delegate("#map", "pageshow", function() {
 			} else {
 				map.setZoom(3);
 			}
-			$('#map-canvas').height(screenHeight - 200);
-			map.setCenter(centerOfUSA);
+			// Determine if landscape or portrait
+			if (Math.abs(window.orientation) === 90) { // landscape
+				$('#map-canvas').height(screenHeight - 75);
+			} else { // portrait
+				$('#map-canvas').height(screenHeight - 140);
+			}
+			map.setCenter(stateLatLon);
 		});
 		
 		// Keep state within a certain rectangle, so user can't just pan around the whole world

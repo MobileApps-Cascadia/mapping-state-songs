@@ -15,15 +15,16 @@
 	z-index: 2;
 }
 
+/* Move the map down below h3 */
+#map > div[data-role="content"] {
+	margin-top: 50px;
+}
+
 /* The map container */
 #map-canvas {
-	position: relative;
-	top: 50px;
-	display: block;
 	margin: 0 auto;
 	width: 98%;
 	box-shadow: 0 0 10px rgba(0,0,0, .8);
-	margin-bottom: -100px;
 }
 
 /* Remove close button on InfoWindow for state */
@@ -42,18 +43,25 @@
 	bottom: 0;
 }
 
+/* Move back button to top-left of header */
+#map .nav .backButton {
+	position: fixed;
+	top: 7px;
+	left: 2px;
+}
+
 /* Navigation on map page in landscape mode */
 @media (orientation : landscape) {
 	#map-canvas { 
 		width: 75%;
-		margin: 0 0 -100px 0;
+		margin: 0;
 	}
 	
 	#map > .navContainer {
-		position:absolute;
-		top:50px;
-		right:20px;
-		width:20%;
-		text-align:right;
+		position: absolute;
+		top: 34px;
+		right: 20px;
+		width: 20%;
+		text-align: right;
 	}
 }
