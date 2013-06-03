@@ -233,27 +233,6 @@ div[data-role="page"] {
 #aboutPage .blue {
 	color: blue;
 }
-/*
-#second a[href="#map"] {
-	background-color: white;
-	color: #7597c7;
-	display:block;
-	margin:0 auto;
-	text-transform:uppercase;
-	font-weight:bold;
-	font-size:28px;
-	line-height: 36px;
-	height:36px;
-	width: 70px;
-	text-align: center;
-	padding: 20px;
-	border:thin solid #aaa;
-	-webkit-box-shadow:  inset 0px 0px 30px #777;
-	-moz-box-shadow:  inset 0px 0px 30px #7775;
-	-ms-box-shadow:  inset 0px 0px 30px #777;
-	box-shadow:  inset 0px 0px 30px #777;
-	border-radius: 30px;
-}*/
 
 
 @media (orientation : landscape) {
@@ -302,6 +281,7 @@ div[data-role="page"] {
 
 
 #home .navButton,  #second .navButton{
+	clear:right;
 	display:block;
 	margin:5px 0;
 	float:right;
