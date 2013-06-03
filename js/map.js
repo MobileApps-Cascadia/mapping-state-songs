@@ -37,7 +37,7 @@ $(document).delegate("#map", "pageshow", function() {
 			stateLatLon = new google.maps.LatLng(lat, lon); // create new LatLng object with the state's lat/lon
 		
 		// Determine the window size to set zoom
-		screenWidth = $(document).width();
+		screenWidth = $(window).width();
 		if (screenWidth > 666) {
 			zoomLevel = 4;
 		} else {
@@ -105,8 +105,8 @@ $(document).delegate("#map", "pageshow", function() {
 		map.setOptions({styles: stylesArray});
 		
 		// Determine the screen size
-		screenWidth = $(document).width();
-		screenHeight = $(document).height();
+		screenWidth = $(window).width();
+		screenHeight = $(window).height();
 		// If screen size is larger than 666px, set zoom to 4, otherwise set to 3
 		if (screenWidth > 666) {
 			map.setZoom(4);
@@ -127,15 +127,21 @@ $(document).delegate("#map", "pageshow", function() {
 		// Resize map when switching between portrait/landscape mode
 		// If window size is larger than 666px, set zoom to 4, otherwise set zoom to 3
 		$(window).on("orientationchange", function(evt) {
-			screenWidth = $(document).width();
-			screenHeight = $(document).height();
+			screenWidth = $(window).width();
+			screenHeight = $(window).height();
 			if (screenWidth > 666) {
 				map.setZoom(4);
 			} else {
 				map.setZoom(3);
 			}
 			// Set the height of #map-canvas
-			$('#map-canvas').height(screenHeight - $('#map h3').outerHeight() - 45);
+			var newHeight;
+			if (screenWidth > screenHeight) {
+				newHeight = screenHeight;
+			} else {
+				newHeight = screenWidth;
+			}
+			$('#map-canvas').height(newHeight - $('#map h3').outerHeight() - 45);
 			map.setCenter(stateLatLon);
 		});
 		
