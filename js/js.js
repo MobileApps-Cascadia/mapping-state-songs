@@ -1,5 +1,5 @@
 //global variables for media playback
-var state, my_media, fullStateName;
+var state, my_media, fullStateName, newSrcFile=true;
 
 $(document).ready(function () {
       // Call the barcode scanner's scan() function when the scan button is clicked  
@@ -42,7 +42,10 @@ function scan() {
 // Play audio
 function playAudio(src) {
     // Create Media object from src
-    my_media = new Media(src, onSuccess, onError, onStatusChange);
+    if (!my_media || newSrcFile) { //check to see if the src has been changed or is missing
+    	my_media = new Media(src, onSuccess, onError, onStatusChange);
+    	newSrcFile = false; //reset flag
+    }
     my_media.play();
 }
 

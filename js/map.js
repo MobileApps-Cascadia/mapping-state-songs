@@ -16,7 +16,7 @@ $(document).delegate("#map", "pageshow", function() {
 	zoomLevel, // The zoom level (larger sreens should be zoomed in more)
 	screenWidth, // The width of the screen
 	screenHeight, // The height of the map
-	stateName = $('#statename'); // The current state's name
+	stateName = fullStateName; // The current state's name
 	
 	// Add the stateName inside the <h3></h3> tag on the #map page
 	$('#map > div[data-role="content"] > h3').text(stateName.text());
@@ -24,7 +24,7 @@ $(document).delegate("#map", "pageshow", function() {
 	// Get the latitude and longitude of the state we want to point out
 	$.ajax({
         type: 'GET',
-        url: 'http://statetuned.cascadia.edu/services/state_list/' + state,
+        url: servicesURL + 'state_list/' + state,
 		dataType: 'json',
 		success: addMap
 	});

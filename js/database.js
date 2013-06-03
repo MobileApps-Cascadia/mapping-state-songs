@@ -99,6 +99,7 @@ function updateTitle(data){
 function replacepage(data) {
     db.transaction(queryDB, errorDB, console.log("State Tuning queried"));
     songURL = data.tunes[0].content;
+    newSrcFile = true; // set flag to load new media
     songID = data.tunes[0].id;
         /* Create a single song listing with the like heart unselected and one button that toggle between play and pause */
         $('#statesongs').html('<div class="song" data-songid=' + songID + '><div class="playPauseButton"></div><a href="#map"><div class="mapButton"></div></a><div class="likeButton"></div></div>');
