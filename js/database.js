@@ -130,7 +130,7 @@ function replacepage(data) {
     songID = data.tunes[0].id;
         /* Create a single song listing with the like heart as grey  and one button that toggle between play and pause */
         // $('#statesongs').html('<li id="song" data-songid=' + songID + '><img class="btn large" src="images/pause.png"> ' + fullStateName + ' State Song </li>');
-        $('#statesongs').html('<div class="song" data-songid=' + songID + '><div class="playPauseButton"></div><div class="mapButton"></div><div class="likeButton"></div></div>');
+        $('#statesongs').html('<div class="song" data-songid=' + songID + '><div class="playPauseButton"></div><a href="#map"><div class="mapButton"></div></a><div class="likeButton"></div></div>');
         // $('#statesongs').attr('data-songid', songID);
         playAudio(assetsURL+songURL);       
        
