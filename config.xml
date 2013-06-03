@@ -22,6 +22,10 @@
     </author>
     
     <preference name="phonegap-version" value="2.7.0" />
+    <preference name="exit-on-suspend" value="true" />
+    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-maxSdkVersion" value="17" />
+    <preference name="load-url-timeout" value="30000" />
     <!--preference name="orientation" value="portrait" /-->
     <!-- Icon Info -->
     <icon src="icons/icon.png" />
