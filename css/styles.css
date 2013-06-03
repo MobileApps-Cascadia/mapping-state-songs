@@ -196,14 +196,14 @@ div[data-role="page"] {
 	
 .playPauseButton {
 	display:inline-block;
-	background-image:url(../images/pauseButton.png);
+	background-image:url(../images/playButton.png);
 	background-image:no-repeat;
 	width:60px;
 	height:60px;
 }
 .playPauseButton.paused {
 	display:inline-block;
-	background-image:url(../images/playButton.png);
+	background-image:url(../images/pauseButton.png);
 	background-image:no-repeat;
 	width:60px;
 	height:60px;
