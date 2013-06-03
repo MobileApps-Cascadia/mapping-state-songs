@@ -3,9 +3,9 @@ var state, my_media, fullStateName;
 
 $(document).ready(function () {
       // Call the barcode scanner's scan() function when the scan button is clicked  
-	$(".scanButton").click(function() {
-		scan();
-	});
+    $(".scanButton").click(function() {
+        scan();
+    });
       // Call the Media.stopAudio() function when the stop button is clicked  
     $('#stop').click(function() {
         stopAudio();
@@ -17,19 +17,19 @@ $(document).ready(function () {
 function scan() {
     window.plugins.barcodeScanner.scan(
         function(result) {
-        	if(result.cancelled){ //Go back to the main page if no luck scanning
-	            // Stop the currently playing song if one is playing
-	            stopAudio();           
-	        	$.mobile.changePage('#home');
-        	} else {
-	            // Stop the currently playing song if one is playing
-	            stopAudio();           
-	            // retrieve the state url from the "song" string via AJAX call (TODO).
-	            state = result.text;   
-	            // Navigate to the page specified by first part of string.         
-	            $.mobile.changePage( '#second' );            
-	            // Automatically start playback of the state song (from local asset.)
-	            updateState();
+            if(result.cancelled){ //Go back to the main page if no luck scanning
+                // Stop the currently playing song if one is playing
+                stopAudio();           
+                $.mobile.changePage('#home');
+            } else {
+                // Stop the currently playing song if one is playing
+                stopAudio();           
+                // retrieve the state url from the "song" string via AJAX call (TODO).
+                state = result.text;   
+                // Navigate to the page specified by first part of string.         
+                $.mobile.changePage( '#second' );            
+                // Automatically start playback of the state song (from local asset.)
+                updateState();
             }
     }, function(error) {
         alert("Scan failed: " + error);
@@ -88,9 +88,10 @@ function onError(error) {
 function onStatusChange(status) {
     //console.log(status);
     if(status==2){ //song is playing, set button to pause - SINGLE SONG ONLY
-	    $("li#song>img:first").unbind("click").attr("src","images/pause.png").click(function(){pauseAudio()});
+        // $("li#song>img:first").unbind("click").attr("src","images/pause.png").click(function(){pauseAudio()});
+        $('div.song>div:first').unbind('click').addClass('paused').click(function(){pauseAudio()});
     }
     else if(status==3){ //song is paused, set button to play - SINGLE SONG ONLY
-	    $("li#song>img:first").unbind("click").attr("src","images/play.png").click(function(){playAudio(assetsURL+songURL)});    
+        $('div.song>div:first').unbind('click').removeClass('paused').click(function(){playAudio(assetsURL+songURL)});    
     }    
 }

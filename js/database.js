@@ -1,9 +1,9 @@
 var url = "http://statetuned.cascadia.edu/",
-	servicesURL = url+"services/",
-	assetsURL = url+"assets/",
-	songID,
-	songURL,
-	fullStateName,
+    servicesURL = url+"services/",
+    assetsURL = url+"assets/",
+    songID,
+    songURL,
+    fullStateName,
     //songList,
     //playButton,
     //pauseButton,
@@ -14,42 +14,42 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // Cordova is ready
 //
 function onDeviceReady() {
-	console.log("device ready");
-	db = window.openDatabase("StateTuning", "1.0", "StateTuning", 100000);
-	db.transaction(setUpDB, errorDB, successDB);
+    console.log("device ready");
+    db = window.openDatabase("StateTuning", "1.0", "StateTuning", 100000);
+    db.transaction(setUpDB, errorDB, successDB);
 
     //Set the path for the hearts one time in a variable since they will be altered in several spots
-	/*//if (deviceType == 'Android') {
-	    redHeart = '/android_asset/www/images/redHeart.png';
-	    blankHeart = '/android_asset/www/images/blankHeart.png';
-	    playButton = '/android_asset/www/images/play.png';
-	    pauseButton = '/android_asset/www/images/pause.png';
-	}
-	else {
-	    redHeart = 'images/redHeart.png';
-	    blankHeart = 'images/blankHeart.png';
-	    playButton = 'images/play.png';
-	    pauseButton = 'images/pause.png';
-	//}*/
+    /*//if (deviceType == 'Android') {
+        redHeart = '/android_asset/www/images/redHeart.png';
+        blankHeart = '/android_asset/www/images/blankHeart.png';
+        playButton = '/android_asset/www/images/play.png';
+        pauseButton = '/android_asset/www/images/pause.png';
+    }
+    else {
+        redHeart = 'images/redHeart.png';
+        blankHeart = 'images/blankHeart.png';
+        playButton = 'images/play.png';
+        pauseButton = 'images/pause.png';
+    //}*/
 
     /*TESTING PURPOSES - UNCOMMENT IF YOU DO NOT HAVE SOMETHING TO SCAN
-	state = 'AZ';
-	updateState();
+    state = 'AZ';
+    updateState();
     */
 }
-	//Creating the table of it doesn't exist
+    //Creating the table of it doesn't exist
         function setUpDB(tx) {
            //tx.executeSql('DROP TABLE IF EXISTS StateTuning'); //this line is for testing the database
             tx.executeSql('CREATE TABLE IF NOT EXISTS StateTuning ( state unique, songID)'); 
         }
     // Logging a Like for a song locally
         function likeSongDB(tx) {
-        	//var sqlInsert = 'INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", ' + songID + ')';
+            //var sqlInsert = 'INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", ' + songID + ')';
             tx.executeSql('INSERT INTO StateTuning (state, songID) VALUES ("' + state + '", ' + songID + ')');
         }
    // Query the database for a row with this State
         function queryDB(tx) {
-        	//var sqlSelect = "SELECT * FROM StateTuning WHERE state ='" + state + "'";
+            //var sqlSelect = "SELECT * FROM StateTuning WHERE state ='" + state + "'";
             tx.executeSql("SELECT * FROM StateTuning WHERE state ='" + state + "'", [], querySuccess); 
         }
 
@@ -62,8 +62,8 @@ function onDeviceReady() {
                 console.log("Row = " + i + " ID = " + results.rows.item(i).id + " State =  " + results.rows.item(i).state + " Song = " + results.rows.item(i).songID);
             }*/
             if (len == 0) { // The current State is not in the DB
-                $('#song').append('<img class="likeButton" src="images/blankHeart.png">');
-
+                // $('#song').append('<img class="likeButton" src="images/blankHeart.png">');
+               
                 $('.likeButton').click(function () {
                     var songID = $(this).parent().data('songid');
                     //Update the DB with a song LIKE
@@ -76,13 +76,15 @@ function onDeviceReady() {
                         }
                     });
                     //Change the heart image and remove the click functionality
-                    $(this).attr("src", "images/redHeart.png");
+                    $(this).addClass('liked');
                     $(this).unbind("click");
 
                 });
             }
             else // Found the State locally
-                $('#song').append('<img class="likeButton" src="images/redHeart.png">');
+                // $('#song').append('<img class="likeButton" src="images/redHeart.png">');
+                $('.likeButton').addClass('liked');
+
 
 
         }
@@ -93,33 +95,33 @@ function onDeviceReady() {
             console.log("Error with SQL: " + err.code + ", message: "+err.message);
         }
         function successDB(){
-	         console.log('Database SetUp Successful');
+             console.log('Database SetUp Successful');
         }
 
         //============================================================================================================
 function updateState()
-	{
-	console.log("starting Update State");
-	$.ajax({
+    {
+    console.log("starting Update State");
+    $.ajax({
             type: 'GET',
             url: 'http://statetuned.cascadia.edu/services/state_list/' + state,
-			dataType: 'json',
-			success: updateTitle
-	});
+            dataType: 'json',
+            success: updateTitle
+    });
 
-		
-		
-	$.ajax({
-		type: 'GET',
-		url: 'http://statetuned.cascadia.edu/services/state_tunes/' + state,
-		dataType: 'json',
-		success: replacepage
+        
+        
+    $.ajax({
+        type: 'GET',
+        url: 'http://statetuned.cascadia.edu/services/state_tunes/' + state,
+        dataType: 'json',
+        success: replacepage
      });
 }
 
 function updateTitle(data){
- 	fullStateName = data.state[0].name;
- 	$("#statename").html(fullStateName);
+    fullStateName = data.state[0].name;
+    $("#statename").html(fullStateName);
 }
 
 function replacepage(data) {
@@ -127,7 +129,9 @@ function replacepage(data) {
     songURL = data.tunes[0].content;
     songID = data.tunes[0].id;
         /* Create a single song listing with the like heart as grey  and one button that toggle between play and pause */
-        $('#statesongs').html('<li id="song" data-songid=' + songID + '><img class="btn large" src="images/pause.png"> ' + fullStateName + ' State Song </li>');
+        // $('#statesongs').html('<li id="song" data-songid=' + songID + '><img class="btn large" src="images/pause.png"> ' + fullStateName + ' State Song </li>');
+        $('#statesongs').html('<div class="song" data-songid=' + songID + '><div class="playPauseButton"></div><div class="mapButton"></div><div class="likeButton"></div></div>');
+        // $('#statesongs').attr('data-songid', songID);
         playAudio(assetsURL+songURL);       
        
 /* TODO: when we have more than one song this will create a list of songs with the likes. Need to fix heart references
