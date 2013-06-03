@@ -16,7 +16,7 @@ $(document).delegate("#map", "pageshow", function() {
 	zoomLevel, // The zoom level (larger sreens should be zoomed in more)
 	screenWidth, // The width of the screen
 	screenHeight, // The height of the map
-	stateName = fullStateName; // The current state's name
+	stateName = $('#statename'); // The current state's name
 	
 	// Add the stateName inside the <h3></h3> tag on the #map page
 	$('#map > div[data-role="content"] > h3').text(stateName.text());
