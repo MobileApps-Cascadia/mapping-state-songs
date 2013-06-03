@@ -113,11 +113,11 @@ $(document).delegate("#map", "pageshow", function() {
 		} else {
 			map.setZoom(3);
 		}
-		// Determine if landscape or portrait, then set #map-canvas height
-		if (Math.abs(window.orientation) === 90) { // landscape
-			$('#map-canvas').height(screenHeight - 75);
+		// Determine if landscape or portrait
+		if (screenWidth > screenHeight) { // landscape
+			$('#map-canvas').height(screenHeight - $('#map h3').outerHeight() - 25);
 		} else { // portrait
-			$('#map-canvas').height(screenHeight - 140);
+			$('#map-canvas').height(screenHeight - 50 - $('.navContainer').outerHeight());
 		}
 		
 		
@@ -128,9 +128,9 @@ $(document).delegate("#map", "pageshow", function() {
 	    	position: stateLatLon
 	  	});
 		
-		// Keep the map centered when switching between portrait/landscape mode
+		// Resize map when switching between portrait/landscape mode
 		// If window size is larger than 666px, set zoom to 4, otherwise set zoom to 3
-		$(window).resize(function() {
+		$(window).on("orientationchange", function(evt) {
 			screenWidth = screen.width;
 			screenHeight = screen.height;
 			if (screenWidth > 666) {
@@ -139,10 +139,10 @@ $(document).delegate("#map", "pageshow", function() {
 				map.setZoom(3);
 			}
 			// Determine if landscape or portrait
-			if (Math.abs(window.orientation) === 90) { // landscape
-				$('#map-canvas').height(screenHeight - 75);
+			if (evt.orientation === "landscape") { // landscape
+				$('#map-canvas').height(screenHeight - $('#map h3').outerHeight() - 25);
 			} else { // portrait
-				$('#map-canvas').height(screenHeight - 140);
+				$('#map-canvas').height(screenHeight - 50 - $('.navContainer').outerHeight());
 			}
 			map.setCenter(stateLatLon);
 		});

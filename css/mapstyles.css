@@ -45,9 +45,12 @@
 
 /* Move back button to top-left of header */
 #map .nav .backButton {
+	background-repeat: no-repeat;
+	height: 37px;
+	left: 2px;
 	position: fixed;
 	top: 7px;
-	left: 2px;
+	width: 73px;
 }
 
 /* Navigation on map page in landscape mode */
