@@ -281,8 +281,6 @@ div[data-role="page"] {
 	text-align:right;
 }
 
-
-
 #home .scanButton {
 	width:90%;
 	max-width: 200px;
@@ -323,27 +321,18 @@ div[data-role="page"] {
 }
 #statepic {
 	position:relative;
-	width: 45%;
+	width: 80%;
 	float:left;
 }
 
-#statesongs {
-	posiiton:relative;
-	margin: 10px auto;
+#statesongs .song {
 	float:left;
-	width: 53%;
-	border: 3px solid #ccc;	
+	width: 18%;
+}
+#statesongs .song > div {
+	display:block;
 }
 
-#statesongs li {
-	padding-left:5px;
-	padding-right: 5px;
-}
-
-#second a[href="#map"] {
-	float:left;
-	margin-left:20%;
-}
 }
 
 /* iPads (portrait) ----------- */
@@ -390,21 +379,43 @@ and (max-device-width : 1024px) {
 	height: 78px;
 }
 
+.facebook {
+	width: 78px;
+}
+
 #home .navButton {
 	margin:0 40px;
 }
 
-#second a[href="#map"] {
-	font-size:24px;
-	line-height: 100px;
-	text-align: center;
-	border-radius: 50px;
-	width:100px;
-	height: 100px;
-	-webkit-box-shadow:  0px 0px 5px #555;
-	-moz-box-shadow:  0px 0px 5px #555;
-	-ms-box-shadow:  0px 0px 5px #555;
-	box-shadow:  0px 0px 5px #555;
+.playPauseButton {
+	background-size:contain;
+	background-repeat:no-repeat;
+	width:90px;
+	height:90px;
+}
+.playPauseButton.paused {
+	background-size:contain;
+	background-repeat:no-repeat;
+	width:90px;
+	height:90px;
+}
+.mapButton {
+	background-size:contain;
+	background-repeat:no-repeat;
+	width:90px;
+	height:90px;
+}
+.likeButton{
+	background-size:contain;
+	background-repeat:no-repeat;
+	width:90px;
+	height:90px;
+}
+.likeButton.liked{
+	background-size:contain;
+	background-repeat:no-repeat;
+	width:90px;
+	height:90px;
 }
 
 }
@@ -454,14 +465,14 @@ and (orientation : landscape) {
 	float:none;
 }
 
-#statesongs {
-	float:none;
-	width: 90%;
+
+#statesongs .song > div {
+	display:inline-block;
 }
 
-#second a[href="#map"] {
-	float: none;
-	margin: 20px auto;
+#statesongs .song {
+	float:none;
+	width: 100%;
 }
 }
 
