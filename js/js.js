@@ -43,25 +43,13 @@ function scan() {
 function playAudio(src) {
     // Create Media object from src
     my_media = new Media(src, onSuccess, onError, onStatusChange);
-    // Play audio
-    //$(this).attr('src', pauseButton);
-    //$(this).unbind('click');
-    //$(this).click(pauseAudio(src));
-
     my_media.play();
-
-    
 }
 
 // Pause audio
 function pauseAudio() {
     if (my_media) {
         my_media.pause();
-
-       // $(this).attr('src', playButton);
-       // $(this).unbind('click');
-        //$(this).click(playAudio(src));
-
     }
 }
 
@@ -88,7 +76,6 @@ function onError(error) {
 function onStatusChange(status) {
     //console.log(status);
     if(status==2){ //song is playing, set button to pause - SINGLE SONG ONLY
-        // $("li#song>img:first").unbind("click").attr("src","images/pause.png").click(function(){pauseAudio()});
         $('div.song>div:first').unbind('click').addClass('paused').click(function(){pauseAudio()});
     }
     else if(status==3){ //song is paused, set button to play - SINGLE SONG ONLY
