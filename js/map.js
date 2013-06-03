@@ -113,12 +113,8 @@ $(document).delegate("#map", "pageshow", function() {
 		} else {
 			map.setZoom(3);
 		}
-		// Determine if landscape or portrait
-		if (screenWidth > screenHeight) { // landscape
-			$('#map-canvas').height(screenHeight - $('#map h3').outerHeight() - 25);
-		} else { // portrait
-			$('#map-canvas').height(screenHeight - 50 - $('.navContainer').outerHeight());
-		}
+		// Set the height of #map-canvas
+		$('#map-canvas').height(screenHeight - $('#map h3').outerHeight() - 25);
 		
 		
 		// Display an InfoWindow containing the state artwork that points to the state
@@ -138,12 +134,8 @@ $(document).delegate("#map", "pageshow", function() {
 			} else {
 				map.setZoom(3);
 			}
-			// Determine if landscape or portrait
-			if (evt.orientation === "landscape") { // landscape
-				$('#map-canvas').height(screenHeight - $('#map h3').outerHeight() - 25);
-			} else { // portrait
-				$('#map-canvas').height(screenHeight - 50 - $('.navContainer').outerHeight());
-			}
+			// Set the height of #map-canvas
+			$('#map-canvas').height(screenHeight - $('#map h3').outerHeight() - 25);
 			map.setCenter(stateLatLon);
 		});
 		

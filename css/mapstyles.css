@@ -52,19 +52,3 @@
 	top: 7px;
 	width: 73px;
 }
-
-/* Navigation on map page in landscape mode */
-@media (orientation : landscape) {
-	#map-canvas { 
-		width: 75%;
-		margin: 0;
-	}
-	
-	#map > .navContainer {
-		position: absolute;
-		top: 34px;
-		right: 20px;
-		width: 20%;
-		text-align: right;
-	}
-}
