@@ -135,13 +135,7 @@ $(document).delegate("#map", "pageshow", function() {
 				map.setZoom(3);
 			}
 			// Set the height of #map-canvas
-			var newHeight;
-			if (screenWidth > screenHeight) {
-				newHeight = screenHeight;
-			} else {
-				newHeight = screenWidth;
-			}
-			$('#map-canvas').height(newHeight - $('#map h3').outerHeight() - 45);
+			$('#map-canvas').height(screenHeight - $('#map h3').outerHeight() - 45);
 			map.setCenter(stateLatLon);
 		});
 		
