@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.statesongs.ccc"
+        id        = "edu.cascadia.statetuned"
         versionCode="1" 
-        version   = "1.0.0">    
+        version   = "0.9.0">    
 
     <gap:plugin name="BarcodeScanner" /> <!-- latest release -->
     <!--gap:plugin name="ChildBrowser" /> <!-- latest release -->
@@ -11,7 +11,7 @@
     <!-- versionCode is optional and Android only -->
 
     
-    <name>State Tuned</name>
+    <name>State Tuned: Pre-release</name>
 
     <description>
         Mapping State Songs Project, 2013, Cascadia Community College
