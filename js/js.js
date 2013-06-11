@@ -4,8 +4,6 @@ var state, my_media, fullStateName, newSrcFile=true;
 $(document).ready(function () {
       // Call the barcode scanner's scan() function when the scan button is clicked  
     $(".scanButton").click(function() {
-    	console.log("scan clicked");
-    	window.alert("Clicked");
         scan();
     });
       // Call the Media.stopAudio() function when the stop button is clicked  
