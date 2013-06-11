@@ -7,7 +7,7 @@
 
     <gap:plugin name="BarcodeScanner" /> <!-- latest release -->
     
-    <name>State Tuned: Cascadia Release</name>
+    <name>State Tuned: Cascadia</name>
 
     <description>
         Mapping State Songs Project, 2013, Cascadia Community College
