@@ -10,10 +10,10 @@
     <name>State Tuned: Cascadia</name>
 
     <description>
-        Integrated Learning Project, 2013, Cascadia Community College
+        Mapping State Songs Project, 2013, Cascadia Community College
     </description>
 
-    <author href="http://statetuned.cascadia.edu" email="brianb@cascadia.edu">
+    <author href="http://cascadia.edu" email="brianb@cascadia.edu">
         BIT 271 Class - Spring 2013 - Cascadia Community College
     </author>
     
@@ -44,4 +44,5 @@
 	<gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
 	<gap:splash src="splash/ios/Default-Landscape_at_2x.png" width="2048" height="1496" />
 	<gap:splash src="splash/ios/Default-Portrait_at_2x.png" width="1536" height="2008" />   
+    
 </widget>
