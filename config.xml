@@ -6,12 +6,8 @@
         version   = "1.0.0">    
 
     <gap:plugin name="BarcodeScanner" /> <!-- latest release -->
-    <!--gap:plugin name="ChildBrowser" /> <!-- latest release -->
-
-    <!-- versionCode is optional and Android only -->
-
     
-    <name>State Tuned: Pre-release</name>
+    <name>State Tuned: Cascadia Release</name>
 
     <description>
         Mapping State Songs Project, 2013, Cascadia Community College
@@ -26,7 +22,7 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-maxSdkVersion" value="17" />
     <preference name="load-url-timeout" value="30000" />
-    <!--preference name="orientation" value="portrait" /-->
+
     <!-- Icon Info -->
     <icon src="icons/icon.png" />
     
@@ -39,5 +35,14 @@
     <icon src="icons/mdpi.png" gap:platform="android" gap:density="mdpi" />
     <icon src="icons/hdpi.png" gap:platform="android" gap:density="hdpi" />
     <icon src="icons/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+    
+    <!-- Splash Screen Info -->
+    <gap:splash src="splash/ios/Default.png" width="320" height="480" />
+	<gap:splash src="splash/ios/Default_at_2x.png" width="640" height="960" />
+	<gap:splash src="splash/ios/Default_iphone5.png" width="640" height="1136" />
+	<gap:splash src="splash/ios/Default-Landscape.png" width="1024" height="768" />
+	<gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
+	<gap:splash src="splash/ios/Default-Landscape_at_2x.png" width="2048" height="1496" />
+	<gap:splash src="splash/ios/Default-Portrait_at_2x.png" width="1536" height="2008" />   
     
 </widget>
