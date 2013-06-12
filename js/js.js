@@ -11,9 +11,13 @@ $(document).ready(function () {
         stopAudio();
     });
 });
- /* The scan() function.  Currently the scan function is set up to parse a specifically formatted
-    string returned from the QR code. The function assumes that the string contains the destination
-    url first and then the song url separated by a space. */
+ /* The scan() function.  The scan function is set up to scan a QR code,
+    store the string resulting from the scan into a variable named state,
+    and navigate to the state page template.
+    The function assumes that the string contains the 2-letter state abbreviation
+    as this is what will be needed to populate the state data fields. 
+
+    Scanner code updated to reflect new requirements of updated BarcodeScanner plugin on 06/11/2013 */
 function scan() {
     var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
@@ -34,31 +38,10 @@ function scan() {
                 updateState();
             }
     }, 
-    function (error) {
-        alert("Scanning failed: " + error);
-    }
-);
-
-    
-    // window.plugins.barcodeScanner.scan(
-    //     function(result) {
-    //         if(result.cancelled){ //Go back to the main page if no luck scanning
-    //             // Stop the currently playing song if one is playing
-    //             stopAudio();           
-    //             $.mobile.changePage('#home');
-    //         } else {
-    //             // Stop the currently playing song if one is playing
-    //             stopAudio();           
-    //             // retrieve the state url from the "song" string via AJAX call (TODO).
-    //             state = result.text;   
-    //             // Navigate to the page specified by first part of string.         
-    //             $.mobile.changePage( '#second' );            
-    //             // Automatically start playback of the state song (from local asset.)
-    //             updateState();
-    //         }
-    // }, function(error) {
-    //     alert("Scan failed: " + error);
-    // });
+        function (error) {
+            alert("Scanning failed: " + error);
+        }
+    );
 }
 
 // Audio player
