@@ -37,7 +37,7 @@ function scan() {
                 // Automatically start playback of the state song (from local asset.)
                 updateState();
             }
-    }, 
+        }, 
         function (error) {
             alert("Scanning failed: " + error);
         }
