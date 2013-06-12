@@ -15,8 +15,10 @@ $(document).ready(function () {
     string returned from the QR code. The function assumes that the string contains the destination
     url first and then the song url separated by a space. */
 function scan() {
-    window.plugins.barcodeScanner.scan(
-        function(result) {
+    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+    scanner.scan(
+        function (result) {
             if(result.cancelled){ //Go back to the main page if no luck scanning
                 // Stop the currently playing song if one is playing
                 stopAudio();           
@@ -31,9 +33,32 @@ function scan() {
                 // Automatically start playback of the state song (from local asset.)
                 updateState();
             }
-    }, function(error) {
-        alert("Scan failed: " + error);
-    });
+    }, 
+    function (error) {
+        alert("Scanning failed: " + error);
+    }
+);
+
+    
+    // window.plugins.barcodeScanner.scan(
+    //     function(result) {
+    //         if(result.cancelled){ //Go back to the main page if no luck scanning
+    //             // Stop the currently playing song if one is playing
+    //             stopAudio();           
+    //             $.mobile.changePage('#home');
+    //         } else {
+    //             // Stop the currently playing song if one is playing
+    //             stopAudio();           
+    //             // retrieve the state url from the "song" string via AJAX call (TODO).
+    //             state = result.text;   
+    //             // Navigate to the page specified by first part of string.         
+    //             $.mobile.changePage( '#second' );            
+    //             // Automatically start playback of the state song (from local asset.)
+    //             updateState();
+    //         }
+    // }, function(error) {
+    //     alert("Scan failed: " + error);
+    // });
 }
 
 // Audio player
